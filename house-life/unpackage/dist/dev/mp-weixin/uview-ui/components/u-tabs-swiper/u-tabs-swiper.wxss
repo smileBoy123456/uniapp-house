@@ -1,0 +1,109 @@
+@charset "UTF-8";
+/**
+ * 下方引入的为uView UI的集成样式文件，为scss预处理器，其中包含了一些"u-"开头的自定义变量
+ * uView自定义的css类名和scss变量，均以"u-"开头，不会造成冲突，请放心使用 
+ */
+view.data-v-9c8ef540,
+scroll-view.data-v-9c8ef540 {
+  box-sizing: border-box;
+}
+.u-tabs.data-v-9c8ef540 {
+  width: 100%;
+  -webkit-transition-property: background-color, color;
+  transition-property: background-color, color;
+}
+.data-v-9c8ef540::-webkit-scrollbar,.data-v-9c8ef540::-webkit-scrollbar,.data-v-9c8ef540::-webkit-scrollbar {
+  display: none;
+  width: 0 !important;
+  height: 0 !important;
+  -webkit-appearance: none;
+  background: transparent;
+}
+.u-scroll-view.data-v-9c8ef540 {
+  width: 100%;
+  white-space: nowrap;
+  position: relative;
+}
+.u-tabs-scroll-box.data-v-9c8ef540 {
+  position: relative;
+}
+.u-tabs-scorll-flex.data-v-9c8ef540 {
+
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+          flex-direction: row;
+
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+}
+.u-tabs-scorll-flex .u-tabs-item.data-v-9c8ef540 {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+}
+.u-tabs-item.data-v-9c8ef540 {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  -webkit-transition-property: background-color, color, font-weight;
+  transition-property: background-color, color, font-weight;
+}
+.content.data-v-9c8ef540 {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.boxStyle.data-v-9c8ef540 {
+  pointer-events: none;
+  position: absolute;
+  -webkit-transition-property: all;
+  transition-property: all;
+}
+.boxStyle2.data-v-9c8ef540 {
+  pointer-events: none;
+  position: absolute;
+  bottom: 0;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+}
+.itemBackgroundBox.data-v-9c8ef540 {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  -webkit-transition-property: left, background-color;
+  transition-property: left, background-color;
+
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+          flex-direction: row;
+
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.itemBackground.data-v-9c8ef540 {
+  height: 100%;
+  width: 100%;
+  -webkit-transition-property: all;
+  transition-property: all;
+}
+.u-scroll-bar.data-v-9c8ef540 {
+  position: absolute;
+  bottom: 4rpx;
+}
+

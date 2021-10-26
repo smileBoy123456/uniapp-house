@@ -1,0 +1,12 @@
+{
+  "navigationStyle": "custom",
+  "navigationBarTitleText": "我",
+  "usingComponents": {
+    "u-avatar": "/uview-ui/components/u-avatar/u-avatar",
+    "u-row": "/uview-ui/components/u-row/u-row",
+    "u-col": "/uview-ui/components/u-col/u-col",
+    "u-icon": "/uview-ui/components/u-icon/u-icon",
+    "u-cell-group": "/uview-ui/components/u-cell-group/u-cell-group",
+    "u-cell-item": "/uview-ui/components/u-cell-item/u-cell-item"
+  }
+}

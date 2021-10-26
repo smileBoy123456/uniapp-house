@@ -1,0 +1,117 @@
+@charset "UTF-8";
+/**
+ * 下方引入的为uView UI的集成样式文件，为scss预处理器，其中包含了一些"u-"开头的自定义变量
+ * uView自定义的css类名和scss变量，均以"u-"开头，不会造成冲突，请放心使用 
+ */
+.u-tag.data-v-95cf93f4 {
+  box-sizing: border-box;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  border-radius: 6rpx;
+  display: inline-block;
+  line-height: 1;
+}
+.u-size-default.data-v-95cf93f4 {
+  font-size: 22rpx;
+  padding: 12rpx 22rpx;
+}
+.u-size-mini.data-v-95cf93f4 {
+  font-size: 20rpx;
+  padding: 6rpx 12rpx;
+}
+.u-mode-light-primary.data-v-95cf93f4 {
+  background-color: #ecf5ff;
+  color: #2979ff;
+  border: 1px solid #a0cfff;
+}
+.u-mode-light-success.data-v-95cf93f4 {
+  background-color: #dbf1e1;
+  color: #19be6b;
+  border: 1px solid #71d5a1;
+}
+.u-mode-light-error.data-v-95cf93f4 {
+  background-color: #fef0f0;
+  color: #fa3534;
+  border: 1px solid #fab6b6;
+}
+.u-mode-light-warning.data-v-95cf93f4 {
+  background-color: #fdf6ec;
+  color: #ff9900;
+  border: 1px solid #fcbd71;
+}
+.u-mode-light-info.data-v-95cf93f4 {
+  background-color: #f4f4f5;
+  color: #909399;
+  border: 1px solid #c8c9cc;
+}
+.u-mode-dark-primary.data-v-95cf93f4 {
+  background-color: #2979ff;
+  color: #FFFFFF;
+}
+.u-mode-dark-success.data-v-95cf93f4 {
+  background-color: #19be6b;
+  color: #FFFFFF;
+}
+.u-mode-dark-error.data-v-95cf93f4 {
+  background-color: #fa3534;
+  color: #FFFFFF;
+}
+.u-mode-dark-warning.data-v-95cf93f4 {
+  background-color: #ff9900;
+  color: #FFFFFF;
+}
+.u-mode-dark-info.data-v-95cf93f4 {
+  background-color: #909399;
+  color: #FFFFFF;
+}
+.u-mode-plain-primary.data-v-95cf93f4 {
+  background-color: #FFFFFF;
+  color: #2979ff;
+  border: 1px solid #2979ff;
+}
+.u-mode-plain-success.data-v-95cf93f4 {
+  background-color: #FFFFFF;
+  color: #19be6b;
+  border: 1px solid #19be6b;
+}
+.u-mode-plain-error.data-v-95cf93f4 {
+  background-color: #FFFFFF;
+  color: #fa3534;
+  border: 1px solid #fa3534;
+}
+.u-mode-plain-warning.data-v-95cf93f4 {
+  background-color: #FFFFFF;
+  color: #ff9900;
+  border: 1px solid #ff9900;
+}
+.u-mode-plain-info.data-v-95cf93f4 {
+  background-color: #FFFFFF;
+  color: #909399;
+  border: 1px solid #909399;
+}
+.u-disabled.data-v-95cf93f4 {
+  opacity: 0.55;
+}
+.u-shape-circle.data-v-95cf93f4 {
+  border-radius: 100rpx;
+}
+.u-shape-circleRight.data-v-95cf93f4 {
+  border-radius: 0 100rpx 100rpx 0;
+}
+.u-shape-circleLeft.data-v-95cf93f4 {
+  border-radius: 100rpx 0 0 100rpx;
+}
+.u-close-icon.data-v-95cf93f4 {
+  margin-left: 14rpx;
+  font-size: 22rpx;
+  color: #19be6b;
+}
+.u-icon-wrap.data-v-95cf93f4 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: inline-flex;
+  -webkit-transform: scale(0.86);
+          transform: scale(0.86);
+}
+

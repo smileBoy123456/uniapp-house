@@ -1,0 +1,20 @@
+{
+  "component": true,
+  "usingComponents": {
+    "index-u-waterfall-left": "/pages/index/index-u-waterfall-left",
+    "index-u-waterfall-right": "/pages/index/index-u-waterfall-right",
+    "u-navbar": "/uview-ui/components/u-navbar/u-navbar",
+    "u-icon": "/uview-ui/components/u-icon/u-icon",
+    "u-search": "/uview-ui/components/u-search/u-search",
+    "u-swiper": "/uview-ui/components/u-swiper/u-swiper",
+    "u-row": "/uview-ui/components/u-row/u-row",
+    "u-col": "/uview-ui/components/u-col/u-col",
+    "u-gap": "/uview-ui/components/u-gap/u-gap",
+    "u-notice-bar": "/uview-ui/components/u-notice-bar/u-notice-bar",
+    "u-waterfall": "/uview-ui/components/u-waterfall/u-waterfall",
+    "u-lazy-load": "/uview-ui/components/u-lazy-load/u-lazy-load",
+    "u-loadmore": "/uview-ui/components/u-loadmore/u-loadmore",
+    "u-back-top": "/uview-ui/components/u-back-top/u-back-top",
+    "u-no-network": "/uview-ui/components/u-no-network/u-no-network"
+  }
+}

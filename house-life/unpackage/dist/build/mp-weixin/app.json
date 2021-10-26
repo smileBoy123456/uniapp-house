@@ -1,0 +1,49 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/center/center",
+    "pages/login/login",
+    "pages/login/code",
+    "pages/login/account",
+    "pages/login/problem",
+    "pages/profile/setting",
+    "pages/profile/profile",
+    "pages/profile/password",
+    "pages/search/search",
+    "pages/notice/notice",
+    "pages/profile/aboutMe",
+    "pages/search/searchList",
+    "pages/detail/detail",
+    "pages/detail/addHouse",
+    "pages/detail/preHouse"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "World",
+    "navigationBarBackgroundColor": "#ffffff",
+    "backgroundColor": "#ffffff"
+  },
+  "tabBar": {
+    "color": "#909399",
+    "selectedColor": "#2979ff",
+    "borderStyle": "#909399",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "static/index.png",
+        "selectedIconPath": "static/index-selected.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/center/center",
+        "iconPath": "static/center.png",
+        "selectedIconPath": "static/center-selected.png",
+        "text": "我"
+      }
+    ]
+  },
+  "usingComponents": {},
+  "sitemapLocation": "sitemap.json"
+}
