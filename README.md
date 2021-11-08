@@ -23,7 +23,7 @@
 
 - [其他开源项目]
 
-1. 经验分享 https://gitee.com/cookieBoy/well-experienced
+1. 开源精神 https://gitee.com/cookieBoy/share
 2. 商城项目 https://gitee.com/cookieBoy/club
 
 
