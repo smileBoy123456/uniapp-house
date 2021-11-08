@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <th:block th:include="include :: header('修改项目')" />
+</head>
+<body class="white-bg">
+    <div class="wrapper wrapper-content animated fadeInRight ibox-content">
+        <form class="form-horizontal m" id="form-project-edit" th:object="${project}">
+            <input name="id" th:field="*{id}" type="hidden">
+            <div class="form-group">
+                <label class="col-sm-3 control-label">项目名称：</label>
+                <div class="col-sm-8">
+                    <input name="name" th:field="*{name}" class="form-control" type="text" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">项目简介：</label>
+                <div class="col-sm-8">
+                    <input name="introduce" th:field="*{introduce}" class="form-control" type="text" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">团队介绍：</label>
+                <div class="col-sm-8">
+                    <input name="team" th:field="*{team}" class="form-control" type="text" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">项目联系人：</label>
+                <div class="col-sm-8">
+                    <input name="linkman" th:field="*{linkman}" class="form-control" type="text" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">官网链接：</label>
+                <div class="col-sm-8">
+                    <input name="webLink" th:field="*{webLink}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">朋友圈文案：</label>
+                <div class="col-sm-8">
+                    <input name="wechat" th:field="*{wechat}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">活动链接：</label>
+                <div class="col-sm-8">
+                    <input name="activityLink" th:field="*{activityLink}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">是否有募资需求：</label>
+                <div class="col-sm-8">
+                    <select name="raise" class="form-control m-b" th:with="type=${@dict.getType('sys_yes_no')}">
+                        <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}" th:field="*{raise}"></option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">是否有活跃群聊氛围需求：</label>
+                <div class="col-sm-8">
+                    <select name="chat" class="form-control m-b" th:with="type=${@dict.getType('sys_yes_no')}">
+                        <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}" th:field="*{chat}"></option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">是否需要志愿者客服：</label>
+                <div class="col-sm-8">
+                    <select name="volunteer" class="form-control m-b" th:with="type=${@dict.getType('sys_yes_no')}">
+                        <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}" th:field="*{volunteer}"></option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">转发任务：</label>
+                <div class="col-sm-8">
+                    <label class="check-box">
+                        <input type="checkbox" value="1" th:checked="*{relay !=null && relay.contains('1')}" name="relay" >
+                        转发相关素材到微信朋友圈
+                    </label>
+                    <label class="check-box">
+                        <input type="checkbox" value="2" th:checked="*{relay !=null && relay.contains('2')}" name="relay" >
+                        转发相关素材到微信群聊
+                    </label>
+                    <label class="check-box">
+                        <input type="checkbox" value="3" th:checked="*{relay !=null && relay.contains('3')}" name="relay" >
+                        转发相关素材到Twitter
+                    </label>
+                    <label class="check-box">
+                        <input type="checkbox" value="4" th:checked="*{relay !=null && relay.contains('4')}" name="relay" >
+                        转发相关素材到Telegram群聊
+                    </label>
+                    <label class="check-box">
+                        <input type="checkbox" value="5" th:checked="*{relay !=null && relay.contains('5')}" name="relay" >
+                        转发相关素材到微博
+                    </label>
+                    <label class="check-box">
+                        <input type="checkbox" value="6" th:checked="*{relay !=null && relay.contains('6')}" name="relay" >
+                        转发相关素材到discord群聊
+                    </label>
+                    <label class="check-box">
+                        <input type="checkbox" value="7" th:checked="*{relay !=null && relay.contains('7')}" name="relay" >
+                        转发指定推文
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">注册任务：</label>
+                <div class="col-sm-8">
+                    <label class="check-box">
+                        <input type="checkbox" value="1" th:checked="*{register !=null && register.contains('1')}" name="register" >
+                        注册官方网站
+                    </label>
+                    <label class="check-box">
+                        <input type="checkbox" value="2" th:checked="*{register !=null && register.contains('2')}" name="register" >
+                        邀请他人注册
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">关注订阅任务：</label>
+                <div class="col-sm-8">
+                    <label class="check-box">
+                        <input type="checkbox" value="1" th:checked="*{follow !=null && follow.contains('2')}" name="follow" >
+                        关注微信公众号
+                    </label>
+                    <label class="check-box">
+                        <input type="checkbox" value="2" th:checked="*{follow !=null && follow.contains('2')}" name="follow" >
+                        关注官方微博账号
+                    </label>
+                    <label class="check-box">
+                        <input type="checkbox" value="3" th:checked="*{follow !=null && follow.contains('3')}" name="follow" >
+                        关注官方Twitter账号
+                    </label>
+                    <label class="check-box">
+                        <input type="checkbox" value="4" th:checked="*{follow !=null && follow.contains('4')}" name="follow" >
+                        关注官方Telegram订阅号
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">进群和添加任务：</label>
+                <div class="col-sm-8">
+                    <label class="check-box">
+                        <input type="checkbox" value="1" th:checked="*{jointask !=null && jointask.contains('1')}" name="jointask" >
+                        加入官方微信群
+                    </label>
+                    <label class="check-box">
+                        <input type="checkbox" value="2" th:checked="*{jointask !=null && jointask.contains('2')}" name="jointask" >
+                        加入官方电报群
+                    </label>
+                    <label class="check-box">
+                        <input type="checkbox" value="3" th:checked="*{jointask !=null && jointask.contains('3')}" name="jointask" >
+                        加入官方discord群
+                    </label>
+                    <label class="check-box">
+                        <input type="checkbox" value="4" th:checked="*{jointask !=null && jointask.contains('4')}" name="jointask" >
+                        添加官方客服微信
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">其它任务：</label>
+                <div class="col-sm-8">
+                    <input name="other" th:field="*{other}" class="form-control" type="text">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">Logo：</label>
+                <div class="col-sm-8">
+                    <input type="file" accept="image/*" onchange="uploadLogo()">
+                    <div style="display: flex">
+                        <input id="logoName" name="logoName" th:field="*{logoName}" class="form-control" type="text" readonly>
+                        <input id="logoPath" name="logoPath" th:field="*{logoPath}" hidden="hidden">
+                        <a class="btn btn-warning" onclick="downloadFile('logo')" style="margin-left: 1em">
+                            <i class="fa fa-download"></i> 下载
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">补充附件（白皮书）：</label>
+                <div class="col-sm-8">
+                    <input type="file" onchange="uploadBook()">
+                    <div style="display: flex">
+                        <input id="bookName" name="bookName" th:field="*{bookName}" class="form-control" type="text" readonly>
+                        <input id="bookPath" name="bookPath" th:field="*{bookPath}" hidden="hidden">
+                        <a class="btn btn-warning" onclick="downloadFile('book')" style="margin-left: 1em">
+                            <i class="fa fa-download"></i> 下载
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">补充附件（审计报告）：</label>
+                <div class="col-sm-8">
+                    <input type="file" accept="image/*" onchange="uploadReport()">
+                    <div style="display: flex">
+                        <input id="reportName" name="reportName" th:field="*{reportName}" class="form-control" type="text" readonly>
+                        <input id="reportPath" name="reportPath" th:field="*{reportPath}" hidden="hidden">
+                        <a class="btn btn-warning" onclick="downloadFile('report')" style="margin-left: 1em">
+                            <i class="fa fa-download"></i> 下载
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">任务相关素材（海报一）：</label>
+                <div class="col-sm-8">
+                    <input type="file" accept="image/*" onchange="uploadBanner1()">
+                    <div style="display: flex">
+                        <input id="banner1Name" name="bannerName1" th:field="*{bannerName1}" class="form-control" type="text" readonly>
+                        <input id="banner1Path" name="bannerPath1" th:field="*{bannerPath1}" hidden="hidden">
+                        <a class="btn btn-warning" onclick="downloadFile('banner1')" style="margin-left: 1em">
+                            <i class="fa fa-download"></i> 下载
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">任务相关素材（海报二）：</label>
+                <div class="col-sm-8">
+                    <input type="file" accept="image/*" onchange="uploadBanner2()">
+                    <div style="display: flex">
+                        <input id="banner2Name" name="bannerName2" th:field="*{bannerName2}" class="form-control" type="text" readonly>
+                        <input id="banner2Path" name="bannerPath2" th:field="*{bannerPath2}" hidden="hidden">
+                        <a class="btn btn-warning" onclick="downloadFile('banner2')" style="margin-left: 1em">
+                            <i class="fa fa-download"></i> 下载
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">任务相关素材（海报三）：</label>
+                <div class="col-sm-8">
+                    <input type="file" accept="image/*" onchange="uploadBanner3()">
+                    <div style="display: flex">
+                        <input id="banner3Name" name="bannerName3" th:field="*{bannerName3}" class="form-control" type="text" readonly>
+                        <input id="banner3Path" name="bannerPath3" th:field="*{bannerPath3}" hidden="hidden">
+                        <a class="btn btn-warning" onclick="downloadFile('banner3')" style="margin-left: 1em">
+                            <i class="fa fa-download"></i> 下载
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+    <th:block th:include="include :: footer" />
+    <th:block th:include="include :: bootstrap-fileinput-js" />
+    <script type="text/javascript">
+        var prefix = ctx + "system/project";
+        $("#form-project-edit").validate({
+            focusCleanup: true
+        });
+
+        function submitHandler() {
+            if ($.validate.form()) {
+                $.operate.save(prefix + "/edit", $('#form-project-edit').serialize());
+            }
+        }
+
+        function uploadLogo(event) {
+            var e=window.event||event;
+            // 获取当前选中的文件
+            var file = e.target.files[0];
+            sendFile(file, 'logo');
+        }
+
+        function uploadBook(event) {
+            var e=window.event||event;
+            // 获取当前选中的文件
+            var file = e.target.files[0];
+            sendFile(file, 'book');
+        }
+
+        function uploadReport(event) {
+            var e=window.event||event;
+            // 获取当前选中的文件
+            var file = e.target.files[0];
+            sendFile(file, 'report');
+        }
+
+        function uploadBanner1(event) {
+            var e=window.event||event;
+            // 获取当前选中的文件
+            var file = e.target.files[0];
+            sendFile(file, 'banner1');
+        }
+
+        function uploadBanner2(event) {
+            var e=window.event||event;
+            // 获取当前选中的文件
+            var file = e.target.files[0];
+            sendFile(file, 'banner2');
+        }
+
+        function uploadBanner3(event) {
+            var e=window.event||event;
+            // 获取当前选中的文件
+            var file = e.target.files[0];
+            sendFile(file, 'banner3');
+        }
+
+        function sendFile(file, type) {
+            var data = new FormData();
+            data.append("file", file);
+            $.ajax({
+                type: "POST",
+                url: ctx + "common/upload",
+                data: data,
+                cache: false,
+                contentType: false,
+                processData: false,
+                dataType: 'json',
+                success: function(result) {
+                    if (result.code == web_status.SUCCESS) {
+                        var url =  result.url
+                        var name = result.realName
+                        if(type == 'logo'){
+                            $('#logoName').val(name);
+                            $('#logoPath').val(url);
+                        }
+                        if(type == 'book'){
+                            $('#bookName').val(name);
+                            $('#bookPath').val(url);
+                        }
+                        if(type == 'report'){
+                            $('#reportName').val(name);
+                            $('#reportPath').val(url);
+                        }
+                        if(type == 'banner1'){
+                            $('#bannerName1').val(name);
+                            $('#bannerPath1').val(url);
+                        }
+                        if(type == 'banner2'){
+                            $('#bannerName2').val(name);
+                            $('#bannerPath2').val(url);
+                        }
+                        if(type == 'banner3'){
+                            $('#bannerName3').val(name);
+                            $('#bannerPath3').val(url);
+                        }
+
+                    } else {
+                        $.modal.alertError(result.msg);
+                    }
+                },
+                error: function(error) {
+                    $.modal.alertWarning("文件上传失败。");
+                }
+            });
+        }
+
+        function downloadFile(type){
+            var fileName = $("#"+type+"Name").val();
+            var filePath = $("#"+type+"Path").val();
+            if(filePath){
+                var url = ctx + "common/downloadFile?fileName="+fileName+"&filePath="+filePath;
+                // window.open(url);
+                location.href = url;
+            }else{
+                $.modal.alertWarning("文件不存在");
+            }
+
+        }
+
+    </script>
+</body>
+</html>

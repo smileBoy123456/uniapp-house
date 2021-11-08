@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <th:block th:include="include :: header('新增项目')" />
+    <th:block th:include="include :: bootstrap-fileinput-css" />
+</head>
+<body class="white-bg">
+    <div class="wrapper wrapper-content animated fadeInRight ibox-content">
+        <form class="form-horizontal m" id="form-project-add">
+            <div class="form-group">
+                <label class="col-sm-3 control-label">项目名称：</label>
+                <div class="col-sm-8">
+                    <input name="name" class="form-control" type="text" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">项目简介：</label>
+                <div class="col-sm-8">
+                    <input name="introduce" class="form-control" type="text" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">团队介绍：</label>
+                <div class="col-sm-8">
+                    <input name="team" class="form-control" type="text" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">项目联系人：</label>
+                <div class="col-sm-8">
+                    <input name="linkman" class="form-control" type="text" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">官网链接：</label>
+                <div class="col-sm-8">
+                    <input name="webLink" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">朋友圈文案：</label>
+                <div class="col-sm-8">
+                    <input name="wechat" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">活动链接：</label>
+                <div class="col-sm-8">
+                    <input name="activityLink" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">是否有募资需求：</label>
+                <div class="col-sm-8">
+                    <select name="raise" class="form-control m-b" th:with="type=${@dict.getType('sys_yes_no')}">
+                        <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}"></option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">是否有活跃群聊氛围需求：</label>
+                <div class="col-sm-8">
+                    <select name="chat" class="form-control m-b" th:with="type=${@dict.getType('sys_yes_no')}">
+                        <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}"></option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">是否需要志愿者客服：</label>
+                <div class="col-sm-8">
+                    <select name="volunteer" class="form-control m-b" th:with="type=${@dict.getType('sys_yes_no')}">
+                        <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}"></option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">转发任务：</label>
+                <div class="col-sm-8">
+                    <label class="check-box">
+                        <input type="checkbox" value="1" id="relay" name="relay">
+                        转发相关素材到微信朋友圈
+                    </label>
+                    <label class="check-box">
+                        <input type="checkbox" value="2" id="relay" name="relay">
+                        转发相关素材到微信群聊
+                    </label>
+                    <label class="check-box">
+                        <input type="checkbox" value="3" id="relay" name="relay">
+                        转发相关素材到Twitter
+                    </label>
+                    <label class="check-box">
+                        <input type="checkbox" value="4" id="relay" name="relay">
+                        转发相关素材到Telegram群聊
+                    </label>
+                    <label class="check-box">
+                        <input type="checkbox" value="5" id="relay" name="relay">
+                        转发相关素材到微博
+                    </label>
+                    <label class="check-box">
+                        <input type="checkbox" value="6" id="relay" name="relay">
+                        转发相关素材到discord群聊
+                    </label>
+                    <label class="check-box">
+                        <input type="checkbox" value="7" id="relay" name="relay">
+                        转发指定推文
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">注册任务：</label>
+                <div class="col-sm-8">
+                    <label class="check-box">
+                        <input type="checkbox" value="1" id="register" name="register">
+                        注册官方网站
+                    </label>
+                    <label class="check-box">
+                        <input type="checkbox" value="2" id="register" name="register">
+                        邀请他人注册
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">关注订阅任务：</label>
+                <div class="col-sm-8">
+                    <label class="check-box">
+                        <input type="checkbox" value="1" id="follow" name="follow">
+                        关注微信公众号
+                    </label>
+                    <label class="check-box">
+                        <input type="checkbox" value="2" id="follow" name="follow">
+                        关注官方微博账号
+                    </label>
+                    <label class="check-box">
+                        <input type="checkbox" value="3" id="follow" name="follow">
+                        关注官方Twitter账号
+                    </label>
+                    <label class="check-box">
+                        <input type="checkbox" value="4" id="follow" name="follow">
+                        关注官方Telegram订阅号
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">进群和添加任务：</label>
+                <div class="col-sm-8">
+                    <label class="check-box">
+                        <input type="checkbox" value="1" id="jointask" name="jointask">
+                        加入官方微信群
+                    </label>
+                    <label class="check-box">
+                        <input type="checkbox" value="2" id="jointask" name="jointask">
+                        加入官方电报群
+                    </label>
+                    <label class="check-box">
+                        <input type="checkbox" value="3" id="jointask" name="jointask">
+                        加入官方discord群
+                    </label>
+                    <label class="check-box">
+                        <input type="checkbox" value="4" id="jointask" name="jointask">
+                        添加官方客服微信
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">其它任务：</label>
+                <div class="col-sm-8">
+                    <input name="other" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">Logo：</label>
+                <div class="col-sm-8">
+                    <input type="file" accept="image/*" onchange="uploadLogo()">
+                    <input id="logoName" name="logoName" hidden="hidden">
+                    <input id="logoPath" name="logoPath" hidden="hidden">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">补充附件（白皮书）：</label>
+                <div class="col-sm-8">
+                    <input type="file" onchange="uploadBook()">
+                    <input id="bookName" name="bookName" hidden="hidden">
+                    <input id="bookPath" name="bookPath" hidden="hidden">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">补充附件（审计报告）：</label>
+                <div class="col-sm-8">
+                    <input type="file" accept="image/*" onchange="uploadReport()">
+                    <input id="reportName" name="reportName" hidden="hidden">
+                    <input id="reportPath" name="reportPath" hidden="hidden">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">任务相关素材（海报一）：</label>
+                <div class="col-sm-8">
+                    <input type="file" accept="image/*" onchange="uploadBanner1()">
+                    <input id="bannerName1" name="bannerName1" hidden="hidden">
+                    <input id="bannerPath1" name="bannerPath1" hidden="hidden">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">任务相关素材（海报二）：</label>
+                <div class="col-sm-8">
+                    <input type="file" accept="image/*" onchange="uploadBanner2()">
+                    <input id="bannerName2" name="bannerName2"  hidden="hidden">
+                    <input id="bannerPath2" name="bannerPath2" hidden="hidden">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">任务相关素材（海报三）：</label>
+                <div class="col-sm-8">
+                    <input type="file" accept="image/*" onchange="uploadBanner3()">
+                    <input id="bannerName3" name="bannerName3" hidden="hidden">
+                    <input id="bannerPath3" name="bannerPath3" hidden="hidden">
+                </div>
+            </div>
+
+        </form>
+    </div>
+    <th:block th:include="include :: footer" />
+    <th:block th:include="include :: bootstrap-fileinput-js" />
+    <script type="text/javascript">
+        var prefix = ctx + "system/project"
+        $("#form-project-add").validate({
+            focusCleanup: true
+        });
+
+        function submitHandler() {
+            if ($.validate.form()) {
+                $.operate.save(prefix + "/add", $('#form-project-add').serialize());
+            }
+        }
+
+        function uploadLogo(event) {
+            var e=window.event||event;
+            // 获取当前选中的文件
+            var file = e.target.files[0];
+            sendFile(file, 'logo');
+        }
+
+        function uploadBook(event) {
+            var e=window.event||event;
+            // 获取当前选中的文件
+            var file = e.target.files[0];
+            sendFile(file, 'book');
+        }
+
+        function uploadReport(event) {
+            var e=window.event||event;
+            // 获取当前选中的文件
+            var file = e.target.files[0];
+            sendFile(file, 'report');
+        }
+
+        function uploadBanner1(event) {
+            var e=window.event||event;
+            // 获取当前选中的文件
+            var file = e.target.files[0];
+            sendFile(file, 'banner1');
+        }
+
+        function uploadBanner2(event) {
+            var e=window.event||event;
+            // 获取当前选中的文件
+            var file = e.target.files[0];
+            sendFile(file, 'banner2');
+        }
+
+        function uploadBanner3(event) {
+            var e=window.event||event;
+            // 获取当前选中的文件
+            var file = e.target.files[0];
+            sendFile(file, 'banner3');
+        }
+
+        function sendFile(file, type) {
+            var data = new FormData();
+            data.append("file", file);
+            $.ajax({
+                type: "POST",
+                url: ctx + "common/upload",
+                data: data,
+                cache: false,
+                contentType: false,
+                processData: false,
+                dataType: 'json',
+                success: function(result) {
+                    if (result.code == web_status.SUCCESS) {
+                        var url =  result.url
+                        var realName = result.realName
+                        if(type == 'logo'){
+                            $('#logoName').val(realName);
+                            $('#logoPath').val(url);
+                        }
+                        if(type == 'book'){
+                            $('#bookName').val(realName);
+                            $('#bookPath').val(url);
+                        }
+                        if(type == 'report'){
+                            $('#reportName').val(realName);
+                            $('#reportPath').val(url);
+                        }
+                        if(type == 'banner1'){
+                            $('#bannerName1').val(realName);
+                            $('#bannerPath1').val(url);
+                        }
+                        if(type == 'banner2'){
+                            $('#bannerName2').val(realName);
+                            $('#bannerPath2').val(url);
+                        }
+                        if(type == 'banner3'){
+                            $('#bannerName3').val(realName);
+                            $('#bannerPath3').val(url);
+                        }
+
+                    } else {
+                        $.modal.alertError(result.msg);
+                    }
+                },
+                error: function(error) {
+                    $.modal.alertWarning("图片上传失败。");
+                }
+            });
+        }
+
+    </script>
+</body>
+</html>

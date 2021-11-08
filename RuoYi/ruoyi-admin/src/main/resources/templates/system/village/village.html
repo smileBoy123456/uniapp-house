@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <th:block th:include="include :: header('房源小区列表')" />
+</head>
+<body class="gray-bg">
+     <div class="container-div">
+        <div class="row">
+            <div class="col-sm-12 search-collapse">
+                <form id="formId">
+                    <div class="select-list">
+                        <ul>
+                            <li>
+                                <p>名称：</p>
+                                <input type="text" name="name"/>
+                            </li>
+                            <li>
+                                <p>代号：</p>
+                                <input type="text" name="code"/>
+                            </li>
+                            <li>
+                                <p>年份：</p>
+                                <select name="year" th:with="type=${@dict.getType('house_year')}">
+                                    <option value="">所有</option>
+                                    <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}"></option>
+                                </select>
+                            </li>
+                            <li>
+                                <p>建筑类型：</p>
+                                <select name="type" th:with="type=${@dict.getType('house_type')}">
+                                    <option value="">所有</option>
+                                    <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}"></option>
+                                </select>
+                            </li>
+                            <li>
+                                <p>靠近地铁：</p>
+                                <select name="wayState" th:with="type=${@dict.getType('sys_yes_no')}">
+                                    <option value="">所有</option>
+                                    <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}"></option>
+                                </select>
+                            </li>
+                            <li>
+                                <p>状态：</p>
+                                <select name="state" th:with="type=${@dict.getType('sys_normal_disable')}">
+                                    <option value="">所有</option>
+                                    <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}"></option>
+                                </select>
+                            </li>
+                            <li>
+                                <a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>
+                                <a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i class="fa fa-refresh"></i>&nbsp;重置</a>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+
+            <div class="btn-group-sm" id="toolbar" role="group">
+                <a class="btn btn-success" onclick="$.operate.add()" shiro:hasPermission="system:village:add">
+                    <i class="fa fa-plus"></i> 添加
+                </a>
+                <a class="btn btn-primary single disabled" onclick="$.operate.edit()" shiro:hasPermission="system:village:edit">
+                    <i class="fa fa-edit"></i> 修改
+                </a>
+                <a class="btn btn-danger multiple disabled" onclick="$.operate.removeAll()" shiro:hasPermission="system:village:remove">
+                    <i class="fa fa-remove"></i> 删除
+                </a>
+                <a class="btn btn-warning" onclick="$.table.exportExcel()" shiro:hasPermission="system:village:export">
+                    <i class="fa fa-download"></i> 导出
+                 </a>
+            </div>
+            <div class="col-sm-12 select-table table-striped">
+                <table id="bootstrap-table" data-mobile-responsive="true"></table>
+            </div>
+        </div>
+    </div>
+    <th:block th:include="include :: footer" />
+    <script th:inline="javascript">
+        var editFlag = [[${@permission.hasPermi('system:village:edit')}]];
+        var removeFlag = [[${@permission.hasPermi('system:village:remove')}]];
+        var yearDatas = [[${@dict.getType('house_year')}]];
+        var typeDatas = [[${@dict.getType('house_type')}]];
+        var wayStateDatas = [[${@dict.getType('sys_yes_no')}]];
+        var stateDatas = [[${@dict.getType('sys_normal_disable')}]];
+        var prefix = ctx + "system/village";
+
+        $(function() {
+            var options = {
+                url: prefix + "/list",
+                createUrl: prefix + "/add",
+                updateUrl: prefix + "/edit/{id}",
+                removeUrl: prefix + "/remove",
+                exportUrl: prefix + "/export",
+                modalName: "房源小区",
+                columns: [{
+                    checkbox: true
+                },
+                {
+                    field : 'id',
+                    title : 'id',
+                    visible: false
+                },
+                {
+                    field : 'province',
+                    title : '省'
+                },
+                {
+                    field : 'city',
+                    title : '市'
+                },
+                {
+                    field : 'area',
+                    title : '区'
+                },
+                {
+                    field : 'name',
+                    title : '名称'
+                },
+                {
+                    field : 'code',
+                    title : '代号'
+                },
+                {
+                    field : 'year',
+                    title : '年份',
+                    formatter: function(value, row, index) {
+                       return $.table.selectDictLabel(yearDatas, value);
+                    }
+                },
+                {
+                    field : 'type',
+                    title : '建筑类型',
+                    formatter: function(value, row, index) {
+                       return $.table.selectDictLabel(typeDatas, value);
+                    }
+                },
+                {
+                    field : 'green',
+                    title : '绿化率'
+                },
+                {
+                    field : 'introduce',
+                    title : '介绍'
+                },
+                {
+                    field : 'wayState',
+                    title : '靠近地铁',
+                    formatter: function(value, row, index) {
+                       return $.table.selectDictLabel(wayStateDatas, value);
+                    }
+                },
+                {
+                    field : 'wayCode',
+                    title : '地铁线路'
+                },
+                {
+                    field : 'waySpace',
+                    title : '地铁距离'
+                },
+                {
+                    field : 'lon',
+                    title : '经度'
+                },
+                {
+                    field : 'lat',
+                    title : '纬度'
+                },
+                {
+                    field : 'state',
+                    title : '状态',
+                    formatter: function(value, row, index) {
+                       return $.table.selectDictLabel(stateDatas, value);
+                    }
+                },
+                {
+                    field : 'remark',
+                    title : '备注'
+                },
+                {
+                    title: '操作',
+                    align: 'center',
+                    formatter: function(value, row, index) {
+                        var actions = [];
+                        actions.push('<a class="btn btn-success btn-xs ' + editFlag + '" href="javascript:void(0)" onclick="$.operate.edit(\'' + row.id + '\')"><i class="fa fa-edit"></i>编辑</a> ');
+                        actions.push('<a class="btn btn-danger btn-xs ' + removeFlag + '" href="javascript:void(0)" onclick="$.operate.remove(\'' + row.id + '\')"><i class="fa fa-remove"></i>删除</a>');
+                        return actions.join('');
+                    }
+                }]
+            };
+            $.table.init(options);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <th:block th:include="include :: header('新增房源详情')" />
+    <th:block th:include="include :: datetimepicker-css" />
+</head>
+<body class="white-bg">
+    <div class="wrapper wrapper-content animated fadeInRight ibox-content">
+        <form class="form-horizontal m" id="form-room-add">
+            <div class="form-group">
+                <label class="col-sm-3 control-label">整租/合租：</label>
+                <div class="col-sm-8">
+                    <select name="type" class="form-control m-b" th:with="type=${@dict.getType('house_rent')}">
+                        <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}"></option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">居室：</label>
+                <div class="col-sm-8">
+                    <input name="houseNum" class="form-control" type="text" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">厅：</label>
+                <div class="col-sm-8">
+                    <input name="houseHall" class="form-control" type="text" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">卫生间：</label>
+                <div class="col-sm-8">
+                    <input name="toiletNum" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">整套面积：</label>
+                <div class="col-sm-8">
+                    <input name="houseArea" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">主卧/次卧：</label>
+                <div class="col-sm-8">
+                    <select name="roomType" class="form-control m-b" th:with="type=${@dict.getType('room_type')}">
+                        <option value="">请选择</option>
+                        <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}"></option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">房间号：</label>
+                <div class="col-sm-8">
+                    <input name="roomCode" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">房屋面积：</label>
+                <div class="col-sm-8">
+                    <input name="roomArea" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">朝向：</label>
+                <div class="col-sm-8">
+                    <input name="direction" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">租金：</label>
+                <div class="col-sm-8">
+                    <input name="price" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">楼层：</label>
+                <div class="col-sm-8">
+                    <input name="floor" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">楼房类型：</label>
+                <div class="col-sm-8">
+                    <select name="stepType" class="form-control m-b" th:with="type=${@dict.getType('house_step')}">
+                        <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}"></option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">起租日期：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                        <input name="startDate" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">房源描述：</label>
+                <div class="col-sm-8">
+                    <input name="introduce" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">房东姓名：</label>
+                <div class="col-sm-8">
+                    <input name="ownerName" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">房东电话：</label>
+                <div class="col-sm-8">
+                    <input name="owerPhone" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">小区名称：</label>
+                <div class="col-sm-8">
+                    <select name="villageId" id="villageId" lay-verify="required" class="form-control">
+                        <option th:each="village:${villageList}" th:value="${village.id}"
+                                th:text="${village.name}"></option>
+                    </select>
+                    <input id="villageName" name="villageName" hidden="hidden">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">具体地址：</label>
+                <div class="col-sm-8">
+                    <input name="address" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">房牌号：</label>
+                <div class="col-sm-8">
+                    <input name="houseNo" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">付款方式：</label>
+                <div class="col-sm-8">
+                    <select name="payType" class="form-control m-b" th:with="type=${@dict.getType('pay_type')}">
+                        <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}"></option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">出租状态：</label>
+                <div class="col-sm-8">
+                    <select name="state" class="form-control m-b" th:with="type=${@dict.getType('house_state')}">
+                        <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}"></option>
+                    </select>
+                </div>
+            </div>
+        </form>
+    </div>
+    <th:block th:include="include :: footer" />
+    <th:block th:include="include :: datetimepicker-js" />
+    <script type="text/javascript">
+        var prefix = ctx + "system/room"
+        $("#form-room-add").validate({
+            focusCleanup: true
+        });
+
+        function submitHandler() {
+            if ($.validate.form()) {
+                $.operate.save(prefix + "/add", $('#form-room-add').serialize());
+            }
+        }
+
+        $("input[name='startDate']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("#villageId").change(function() {
+            var villageName = $("#villageId").find("option:selected").text();
+            $("#villageName").val(villageName);
+        })
+    </script>
+</body>
+</html>
