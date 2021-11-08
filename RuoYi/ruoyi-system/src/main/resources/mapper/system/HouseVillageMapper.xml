@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.HouseVillageMapper">
+
+    <resultMap type="HouseVillage" id="HouseVillageResult">
+        <result property="id"    column="id"    />
+        <result property="province"    column="province"    />
+        <result property="city"    column="city"    />
+        <result property="area"    column="area"    />
+        <result property="name"    column="name"    />
+        <result property="code"    column="code"    />
+        <result property="year"    column="year"    />
+        <result property="type"    column="type"    />
+        <result property="green"    column="green"    />
+        <result property="introduce"    column="introduce"    />
+        <result property="wayState"    column="way_state"    />
+        <result property="wayCode"    column="way_code"    />
+        <result property="waySpace"    column="way_space"    />
+        <result property="lon"    column="lon"    />
+        <result property="lat"    column="Lat"    />
+        <result property="state"    column="state"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>
+
+    <sql id="selectHouseVillageVo">
+        select id, province, city, area, name, code, year, type, green, introduce, way_state, way_code, way_space, lon, Lat, state, create_time, create_by, update_time, update_by, remark from house_village
+    </sql>
+
+    <select id="selectHouseVillageList" parameterType="HouseVillage" resultMap="HouseVillageResult">
+        <include refid="selectHouseVillageVo"/>
+        <where>
+            <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
+            <if test="code != null  and code != ''"> and code = #{code}</if>
+            <if test="year != null "> and year = #{year}</if>
+            <if test="type != null  and type != ''"> and type = #{type}</if>
+            <if test="wayState != null "> and way_state = #{wayState}</if>
+            <if test="state != null "> and state = #{state}</if>
+        </where>
+    </select>
+
+    <select id="selectHouseVillage" parameterType="HouseVillage" resultMap="HouseVillageResult">
+        <include refid="selectHouseVillageVo"/>
+        <where>
+            <if test="name != null  and name != ''"> and name = #{name}</if>
+            <if test="code != null  and code != ''"> and code = #{code}</if>
+        </where>
+    </select>
+
+    <select id="selectHouseVillageById" parameterType="Long" resultMap="HouseVillageResult">
+        <include refid="selectHouseVillageVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertHouseVillage" parameterType="HouseVillage">
+        insert into house_village
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null ">id,</if>
+            <if test="province != null  and province != ''">province,</if>
+            <if test="city != null  and city != ''">city,</if>
+            <if test="area != null  and area != ''">area,</if>
+            <if test="name != null  and name != ''">name,</if>
+            <if test="code != null  and code != ''">code,</if>
+            <if test="year != null ">year,</if>
+            <if test="type != null  and type != ''">type,</if>
+            <if test="green != null ">green,</if>
+            <if test="introduce != null  and introduce != ''">introduce,</if>
+            <if test="wayState != null ">way_state,</if>
+            <if test="wayCode != null  and wayCode != ''">way_code,</if>
+            <if test="waySpace != null ">way_space,</if>
+            <if test="lon != null ">lon,</if>
+            <if test="lat != null ">Lat,</if>
+            <if test="state != null ">state,</if>
+            <if test="createTime != null ">create_time,</if>
+            <if test="createBy != null  and createBy != ''">create_by,</if>
+            <if test="updateTime != null ">update_time,</if>
+            <if test="updateBy != null  and updateBy != ''">update_by,</if>
+            <if test="remark != null  and remark != ''">remark,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null ">#{id},</if>
+            <if test="province != null  and province != ''">#{province},</if>
+            <if test="city != null  and city != ''">#{city},</if>
+            <if test="area != null  and area != ''">#{area},</if>
+            <if test="name != null  and name != ''">#{name},</if>
+            <if test="code != null  and code != ''">#{code},</if>
+            <if test="year != null ">#{year},</if>
+            <if test="type != null  and type != ''">#{type},</if>
+            <if test="green != null ">#{green},</if>
+            <if test="introduce != null  and introduce != ''">#{introduce},</if>
+            <if test="wayState != null ">#{wayState},</if>
+            <if test="wayCode != null  and wayCode != ''">#{wayCode},</if>
+            <if test="waySpace != null ">#{waySpace},</if>
+            <if test="lon != null ">#{lon},</if>
+            <if test="lat != null ">#{lat},</if>
+            <if test="state != null ">#{state},</if>
+            <if test="createTime != null ">#{createTime},</if>
+            <if test="createBy != null  and createBy != ''">#{createBy},</if>
+            <if test="updateTime != null ">#{updateTime},</if>
+            <if test="updateBy != null  and updateBy != ''">#{updateBy},</if>
+            <if test="remark != null  and remark != ''">#{remark},</if>
+         </trim>
+    </insert>
+
+    <update id="updateHouseVillage" parameterType="HouseVillage">
+        update house_village
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="province != null  and province != ''">province = #{province},</if>
+            <if test="city != null  and city != ''">city = #{city},</if>
+            <if test="area != null  and area != ''">area = #{area},</if>
+            <if test="name != null  and name != ''">name = #{name},</if>
+            <if test="code != null  and code != ''">code = #{code},</if>
+            <if test="year != null ">year = #{year},</if>
+            <if test="type != null  and type != ''">type = #{type},</if>
+            <if test="green != null ">green = #{green},</if>
+            <if test="introduce != null  and introduce != ''">introduce = #{introduce},</if>
+            <if test="wayState != null ">way_state = #{wayState},</if>
+            <if test="wayCode != null  and wayCode != ''">way_code = #{wayCode},</if>
+            <if test="waySpace != null ">way_space = #{waySpace},</if>
+            <if test="lon != null ">lon = #{lon},</if>
+            <if test="lat != null ">Lat = #{lat},</if>
+            <if test="state != null ">state = #{state},</if>
+            <if test="createTime != null ">create_time = #{createTime},</if>
+            <if test="createBy != null  and createBy != ''">create_by = #{createBy},</if>
+            <if test="updateTime != null ">update_time = #{updateTime},</if>
+            <if test="updateBy != null  and updateBy != ''">update_by = #{updateBy},</if>
+            <if test="remark != null  and remark != ''">remark = #{remark},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteHouseVillageById" parameterType="Long">
+        delete from house_village where id = #{id}
+    </delete>
+
+    <delete id="deleteHouseVillageByIds" parameterType="String">
+        delete from house_village where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+</mapper>

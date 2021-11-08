@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+	<th:block th:include="include :: header('实名认证')" />
+	<th:block th:include="include :: layout-latest-css" />
+	<th:block th:include="include :: ztree-css" />
+</head>
+<body class="gray-bg">
+
+	<div class="ui-layout-center">
+		<div class="container-div">
+			<div class="row">
+				<div class="col-sm-12 search-collapse">
+					<form id="user-form">
+						<div class="select-list">
+							<ul>
+								<li>
+									登录名称：<input type="text" name="loginName"/>
+								</li>
+								<li>
+									手机号码：<input type="text" name="phonenumber"/>
+								</li>
+								<li>
+									身份证号：<input type="text" name="idCard"/>
+								</li>
+								<li>
+									实名状态：<select name="authStatus" th:with="type=${@dict.getType('sys_auth_user')}">
+									<option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}"></option>
+									<option value="">所有</option>
+								</select>
+								</li>
+								<li class="select-time">
+									<label>创建时间： </label>
+									<input type="text" class="time-input" id="startTime" placeholder="开始时间" name="params[beginTime]"/>
+									<span>-</span>
+									<input type="text" class="time-input" id="endTime" placeholder="结束时间" name="params[endTime]"/>
+								</li>
+								<li>
+									<a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>
+								    <a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i class="fa fa-refresh"></i>&nbsp;重置</a>
+								</li>
+							</ul>
+						</div>
+					</form>
+				</div>
+
+		        <div class="col-sm-12 select-table table-striped">
+				    <table id="bootstrap-table" data-mobile-responsive="true"></table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<th:block th:include="include :: footer" />
+	<th:block th:include="include :: layout-latest-js" />
+	<th:block th:include="include :: ztree-js" />
+	<script th:inline="javascript">
+		var editFlag = [[${@permission.hasPermi('system:user:edit')}]];
+		var removeFlag = [[${@permission.hasPermi('system:user:remove')}]];
+		var resetPwdFlag = [[${@permission.hasPermi('system:user:resetPwd')}]];
+		var prefix = ctx + "system/user";
+
+		$(function() {
+		    queryUserList();
+		});
+
+		function queryUserList() {
+		    var options = {
+		        url: prefix + "/checkUserList",
+		        createUrl: prefix + "/add",
+		        updateUrl: prefix + "/edit/{id}",
+		        sortName: "authStatus",
+		        sortOrder: "desc",
+		        modalName: "用户",
+		        columns: [
+				{
+					title: "序号",
+					formatter: function (value, row, index) {
+						return $.table.serialNumber(index);
+					}
+				},
+		        {
+		            field: 'loginName',
+		            title: '登录名称',
+		            sortable: true
+		        },
+		        {
+		            field: 'realName',
+		            title: '真实姓名',
+					sortable: true
+		        },
+				{
+					field: 'idCard',
+					title: '身份证号',
+					sortable: true
+				},
+				{
+					field: 'idCardPath',
+					title: '手持身份证照片',
+					formatter: function(value, row, index) {
+						return $.table.imageView(row.idCardPath,800,500);
+					}
+				},
+		        {
+		            field: 'phonenumber',
+		            title: '手机',
+					sortable: true
+		        },
+		        {
+		        	visible: editFlag == 'hidden' ? false : true,
+		        	title: '审核状态',
+		        	align: 'center',
+					sortable: true,
+		        	formatter: function (value, row, index) {
+		        		return statusTools(row);
+		        	}
+		        },
+				{
+					field: 'remark',
+					title: '备注',
+				},
+		        {
+		            field: 'createTime',
+		            title: '创建时间',
+		            sortable: true
+		        },
+				{
+					title: '操作',
+					align: 'center',
+					formatter: function(value, row, index) {
+						var actions = [];
+						actions.push('<a class="btn btn-success btn-xs ' + editFlag + '" href="javascript:void(0)" onclick="authHandle(\'' + row.userId + '\')"><i class="fa fa-edit"></i>审核</a> ');
+						return actions.join('');
+					}
+				}]
+		    };
+		    $.table.init(options);
+		}
+
+
+		/* 用户状态显示 */
+		function statusTools(row) {
+			if (row.authStatus == 0) {
+				return '未认证';
+			}else if (row.authStatus == 1) {
+    			return '待审核';
+    		} else if (row.authStatus == 2) {
+				return '已认证';
+			} else if (row.authStatus == 3) {
+				return '不通过';
+			}
+		}
+
+		function authHandle(userId) {
+			var url = prefix + '/checkUserStatus/' + userId;
+			$.modal.open("实名认证", url, '800', '300');
+		}
+
+	</script>
+</body>
+</html>

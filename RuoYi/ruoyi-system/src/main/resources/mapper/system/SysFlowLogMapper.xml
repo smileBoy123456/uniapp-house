@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.SysFlowLogMapper">
+
+    <resultMap type="SysFlowLog" id="SysFlowLogResult">
+        <result property="id"    column="id"    />
+        <result property="pvNum"    column="pv_num"    />
+        <result property="uvNum"    column="uv_num"    />
+        <result property="ipNum"    column="ip_num"    />
+        <result property="filed1"    column="filed1"    />
+        <result property="filed2"    column="filed2"    />
+        <result property="filed3"    column="filed3"    />
+        <result property="flowDate"    column="flow_Date"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>
+
+    <sql id="selectSysFlowLogVo">
+        select id, pv_num, uv_num, ip_num, filed1, filed2, filed3, remark,flow_Date from sys_flow_log
+    </sql>
+
+    <select id="selectSysFlowLogList" parameterType="SysFlowLog" resultMap="SysFlowLogResult">
+        <include refid="selectSysFlowLogVo"/>
+        <where>
+            <if test="pvNum != null "> and pv_num = #{pvNum}</if>
+            <if test="uvNum != null "> and uv_num = #{uvNum}</if>
+            <if test="ipNum != null "> and ip_num = #{ipNum}</if>
+        </where>
+    </select>
+
+    <select id="selectSysFlowLogById" parameterType="Long" resultMap="SysFlowLogResult">
+        <include refid="selectSysFlowLogVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertSysFlowLog" parameterType="SysFlowLog">
+        insert into sys_flow_log
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null ">id,</if>
+            <if test="pvNum != null ">pv_num,</if>
+            <if test="uvNum != null ">uv_num,</if>
+            <if test="ipNum != null ">ip_num,</if>
+            <if test="filed1 != null ">filed1,</if>
+            <if test="filed2 != null ">filed2,</if>
+            <if test="filed3 != null ">filed3,</if>
+            <if test="flowDate != null ">flow_Date,</if>
+            <if test="remark != null  and remark != ''">remark,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null ">#{id},</if>
+            <if test="pvNum != null ">#{pvNum},</if>
+            <if test="uvNum != null ">#{uvNum},</if>
+            <if test="ipNum != null ">#{ipNum},</if>
+            <if test="filed1 != null ">#{filed1},</if>
+            <if test="filed2 != null ">#{filed2},</if>
+            <if test="filed3 != null ">#{filed3},</if>
+            <if test="flowDate != null ">#{flowDate},</if>
+            <if test="remark != null  and remark != ''">#{remark},</if>
+         </trim>
+    </insert>
+
+    <update id="updateSysFlowLog" parameterType="SysFlowLog">
+        update sys_flow_log
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="pvNum != null ">pv_num = #{pvNum},</if>
+            <if test="uvNum != null ">uv_num = #{uvNum},</if>
+            <if test="ipNum != null ">ip_num = #{ipNum},</if>
+            <if test="filed1 != null ">filed1 = #{filed1},</if>
+            <if test="filed2 != null ">filed2 = #{filed2},</if>
+            <if test="filed3 != null ">filed3 = #{filed3},</if>
+            <if test="flowDate != null ">filed3 = #{flowDate},</if>
+            <if test="remark != null  and remark != ''">remark = #{remark},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteSysFlowLogById" parameterType="Long">
+        delete from sys_flow_log where id = #{id}
+    </delete>
+
+    <delete id="deleteSysFlowLogByIds" parameterType="String">
+        delete from sys_flow_log where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <select id="selectSysFlowLogByMonth" resultMap="SysFlowLogResult">
+        select SUM(pv_num) as pv_num, SUM(uv_num) as uv_num, SUM(ip_num) as ip_num from sys_flow_log
+        WHERE DATE_FORMAT(flow_date,'%Y%m')=DATE_FORMAT(CURDATE(),'%Y%m')
+    </select>
+</mapper>

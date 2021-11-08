@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <th:block th:include="include :: header('矿工世界')" />
+</head>
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <h5 class="m-b-md">本日访问量</h5>
+                    <h2 class="text-navy">
+                        <i class="fa fa-play fa-rotate-270"></i>
+                        <span id="ipFlowDay">0</span>
+                    </h2>
+                    <small>统计方式：IP</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <h5 class="m-b-md">本日访问量</h5>
+                    <h2 class="text-navy">
+                        <i class="fa fa-play fa-rotate-270"></i>
+                        <span id="uvFlowDay">0</span>
+                    </h2>
+                    <small>统计方式：UV</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <h5 class="m-b-md">本日访问量</h5>
+                    <h2 class="text-navy">
+                        <i class="fa fa-play fa-rotate-270"></i>
+                        <span id="pvFlowDay">0</span>
+                    </h2>
+                    <small>统计方式：PV</small>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<div class="row">
+        <div class="col-sm-4">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <h5 class="m-b-md">本周访问量</h5>
+                    <h2 class="text-navy">
+                        <i class="fa fa-play fa-rotate-270"></i>
+                        <span id="ipFlowWeek">0</span>
+                    </h2>
+                    <small>统计方式：IP</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <h5 class="m-b-md">本周访问量</h5>
+                    <h2 class="text-navy">
+                        <i class="fa fa-play fa-rotate-270"></i>
+                        <span id="uvFlowWeek">0</span>
+                    </h2>
+                    <small>统计方式：UV</small>
+                 </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <h5 class="m-b-md">本周访问量</h5>
+                    <h2 class="text-navy">
+                        <i class="fa fa-play fa-rotate-270"></i>
+                        <span id="pvFlowWeek">0</span>
+                    </h2>
+                    <small>统计方式：PV</small>
+                </div>
+            </div>
+        </div>
+    </div>-->
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <h5 class="m-b-md">本月访问量</h5>
+                    <h2 class="text-navy">
+                        <i class="fa fa-play fa-rotate-270"></i>
+                        <span id="ipFlowMonth">0</span>
+                    </h2>
+                    <small>统计方式：IP</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <h5 class="m-b-md">本月访问量</h5>
+                    <h2 class="text-navy">
+                        <i class="fa fa-play fa-rotate-270"></i>
+                        <span id="uvFlowMonth">0</span>
+                    </h2>
+                    <small>统计方式：UV</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <h5 class="m-b-md">本月访问量</h5>
+                    <h2 class="text-navy">
+                        <i class="fa fa-play fa-rotate-270"></i>
+                        <span id="pvFlowMonth">0</span>
+                    </h2>
+                    <small>统计方式：PV</small>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    <div class="echarts" id="echarts-line-chart"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<th:block th:include="include :: footer" />
+<th:block th:include="include :: echarts-js" />
+<script type="text/javascript">
+
+    $(function(){
+        initIndexFlow();
+        initEcharts();
+    })
+
+    function initIndexFlow(){
+        $.ajax({
+            url:"/index/flow",
+            type:"get",
+            success:function(flow){
+                //对传过来的json字符串转化为json对象 等同于 JSON.parse(data);
+                $("#ipFlowDay").html(flow.ipFlowDay);
+                // $("#ipFlowWeek").html(flow.ipFlowWeek);
+                $("#ipFlowMonth").html(flow.ipFlowMonth);
+                $("#uvFlowDay").html(flow.uvFlowDay);
+                // $("#uvFlowWeek").html(flow.uvFlowWeek);
+                $("#uvFlowMonth").html(flow.uvFlowMonth);
+                $("#pvFlowDay").html(flow.pvFlowDay);
+                // $("#pvFlowWeek").html(flow.pvFlowWeek);
+                $("#pvFlowMonth").html(flow.pvFlowMonth);
+            }
+        })
+    }
+
+    //图表的初始化
+    var echarts = echarts.init(document.getElementById('echarts-line-chart'));
+
+    function initEcharts(){
+        echarts.clear();
+        echarts.showLoading({text: '正在努力的读取数据中...'});
+        $.ajax({
+            url:"/echarts/flowLine",
+            type:"get",
+            success:function(data){
+                //对传过来的json字符串转化为json对象 等同于 JSON.parse(data);
+                var option = eval("("+data+")");
+                echarts.setOption(option);
+                echarts.hideLoading();
+            }
+        })
+    }
+
+    $(window).resize(echarts.resize);
+</script>
+</body>
+</html>

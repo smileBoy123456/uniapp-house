@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.HouseRoomMapper">
+
+    <resultMap type="HouseRoom" id="HouseRoomResult">
+        <result property="id"    column="id"    />
+        <result property="type"    column="type"    />
+        <result property="houseNum"    column="house_num"    />
+        <result property="toiletNum"    column="toilet_num"    />
+        <result property="houseArea"    column="house_area"    />
+        <result property="roomType"    column="room_type"    />
+        <result property="roomCode"    column="room_code"    />
+        <result property="roomArea"    column="room_area"    />
+        <result property="direction"    column="direction"    />
+        <result property="price"    column="price"    />
+        <result property="floor"    column="floor"    />
+        <result property="stepType"    column="step_type"    />
+        <result property="startDate"    column="start_date"    />
+        <result property="introduce"    column="introduce"    />
+        <result property="ownerName"    column="owner_name"    />
+        <result property="owerPhone"    column="ower_phone"    />
+        <result property="villageId"    column="village_id"    />
+        <result property="villageName"    column="village_name"    />
+        <result property="address"    column="address"    />
+        <result property="houseNo"    column="house_no"    />
+        <result property="payType"    column="pay_type"    />
+        <result property="publishId"    column="publish_id"    />
+        <result property="state"    column="state"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="createName"    column="create_name"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="updateName"    column="update_name"    />
+        <result property="remark"    column="remark"    />
+        <result property="houseHall"    column="house_Hall"    />
+        <result property="code"    column="code"    />
+        <result property="faceUrl"    column="face_Url"    />
+    </resultMap>
+
+    <resultMap type="HouseImage" id="HouseImageResult">
+        <result property="id"    column="id"    />
+        <result property="imageName"    column="image_Name"    />
+        <result property="imagePath"    column="image_Path"    />
+        <result property="imageUrl"    column="img_Url"    />
+        <result property="imageSize"    column="image_Size"    />
+    </resultMap>
+
+    <resultMap type="HouseFeature" id="HouseFeatureResult">
+        <result property="id"    column="id"    />
+        <result property="feature"    column="feature"    />
+    </resultMap>
+
+    <sql id="selectHouseRoomVo">
+        select id, type, house_num, toilet_num, house_area, room_type, room_code, room_area, direction, price, floor, step_type, start_date, introduce, owner_name, ower_phone, village_id, village_name, address, house_no, pay_type, publish_id, state, create_time, create_name, update_time, update_name, remark,house_Hall,code,face_Url from house_room
+    </sql>
+
+    <select id="selectHouseRoomList" parameterType="HouseRoom" resultMap="HouseRoomResult">
+        <include refid="selectHouseRoomVo"/>
+        <where>
+            <if test="type != null "> and type = #{type}</if>
+            <if test="houseNum != null  and houseNum != ''"> and house_num = #{houseNum}</if>
+            <if test="roomType != null "> and room_type = #{roomType}</if>
+            <if test="direction != null  and direction != ''"> and direction = #{direction}</if>
+            <if test="stepType != null  and stepType != ''"> and step_type = #{stepType}</if>
+            <if test="ownerName != null  and ownerName != ''"> and owner_name like concat('%', #{ownerName}, '%')</if>
+            <if test="owerPhone != null  and owerPhone != ''"> and ower_phone = #{owerPhone}</if>
+            <if test="villageName != null  and villageName != ''"> and village_name like concat('%', #{villageName}, '%')</if>
+            <if test="state != null "> and state = #{state}</if>
+        </where>
+    </select>
+
+    <select id="selectHouseRoomById" parameterType="Long" resultMap="HouseRoomResult">
+        <include refid="selectHouseRoomVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertHouseRoom" parameterType="HouseRoom" useGeneratedKeys="true" keyProperty="id">
+        insert into house_room
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null ">id,</if>
+            <if test="type != null ">type,</if>
+            <if test="houseNum != null  and houseNum != ''">house_num,</if>
+            <if test="toiletNum != null  and toiletNum != ''">toilet_num,</if>
+            <if test="houseArea != null ">house_area,</if>
+            <if test="roomType != null ">room_type,</if>
+            <if test="roomCode != null  and roomCode != ''">room_code,</if>
+            <if test="roomArea != null ">room_area,</if>
+            <if test="direction != null  and direction != ''">direction,</if>
+            <if test="price != null ">price,</if>
+            <if test="floor != null ">floor,</if>
+            <if test="stepType != null  and stepType != ''">step_type,</if>
+            <if test="startDate != null ">start_date,</if>
+            <if test="introduce != null  and introduce != ''">introduce,</if>
+            <if test="ownerName != null  and ownerName != ''">owner_name,</if>
+            <if test="owerPhone != null  and owerPhone != ''">ower_phone,</if>
+            <if test="villageId != null ">village_id,</if>
+            <if test="villageName != null  and villageName != ''">village_name,</if>
+            <if test="address != null  and address != ''">address,</if>
+            <if test="houseNo != null  and houseNo != ''">house_no,</if>
+            <if test="payType != null ">pay_type,</if>
+            <if test="publishId != null ">publish_id,</if>
+            <if test="state != null ">state,</if>
+            <if test="createTime != null ">create_time,</if>
+            <if test="createName != null  and createName != ''">create_name,</if>
+            <if test="updateTime != null ">update_time,</if>
+            <if test="updateName != null  and updateName != ''">update_name,</if>
+            <if test="remark != null  and remark != ''">remark,</if>
+            <if test="houseHall != null  and houseHall != ''">house_Hall,</if>
+            <if test="code != null  and code != ''">code,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null ">#{id},</if>
+            <if test="type != null ">#{type},</if>
+            <if test="houseNum != null  and houseNum != ''">#{houseNum},</if>
+            <if test="toiletNum != null  and toiletNum != ''">#{toiletNum},</if>
+            <if test="houseArea != null ">#{houseArea},</if>
+            <if test="roomType != null ">#{roomType},</if>
+            <if test="roomCode != null  and roomCode != ''">#{roomCode},</if>
+            <if test="roomArea != null ">#{roomArea},</if>
+            <if test="direction != null  and direction != ''">#{direction},</if>
+            <if test="price != null ">#{price},</if>
+            <if test="floor != null ">#{floor},</if>
+            <if test="stepType != null  and stepType != ''">#{stepType},</if>
+            <if test="startDate != null ">#{startDate},</if>
+            <if test="introduce != null  and introduce != ''">#{introduce},</if>
+            <if test="ownerName != null  and ownerName != ''">#{ownerName},</if>
+            <if test="owerPhone != null  and owerPhone != ''">#{owerPhone},</if>
+            <if test="villageId != null ">#{villageId},</if>
+            <if test="villageName != null  and villageName != ''">#{villageName},</if>
+            <if test="address != null  and address != ''">#{address},</if>
+            <if test="houseNo != null  and houseNo != ''">#{houseNo},</if>
+            <if test="payType != null ">#{payType},</if>
+            <if test="publishId != null ">#{publishId},</if>
+            <if test="state != null ">#{state},</if>
+            <if test="createTime != null ">#{createTime},</if>
+            <if test="createName != null  and createName != ''">#{createName},</if>
+            <if test="updateTime != null ">#{updateTime},</if>
+            <if test="updateName != null  and updateName != ''">#{updateName},</if>
+            <if test="remark != null  and remark != ''">#{remark},</if>
+            <if test="houseHall != null  and houseHall != ''">#{houseHall},</if>
+            <if test="code != null  and code != ''">#{code},</if>
+         </trim>
+    </insert>
+
+    <update id="updateHouseRoom" parameterType="HouseRoom">
+        update house_room
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="type != null ">type = #{type},</if>
+            <if test="houseNum != null">house_num = #{houseNum},</if>
+            <if test="toiletNum != null">toilet_num = #{toiletNum},</if>
+            <if test="houseArea != null ">house_area = #{houseArea},</if>
+            <if test="roomType != null ">room_type = #{roomType},</if>
+            <if test="roomCode != null">room_code = #{roomCode},</if>
+            <if test="roomArea != null ">room_area = #{roomArea},</if>
+            <if test="direction != null">direction = #{direction},</if>
+            <if test="price != null ">price = #{price},</if>
+            <if test="floor != null ">floor = #{floor},</if>
+            <if test="stepType != null">step_type = #{stepType},</if>
+            <if test="startDate != null ">start_date = #{startDate},</if>
+            <if test="introduce != null">introduce = #{introduce},</if>
+            <if test="ownerName != null">owner_name = #{ownerName},</if>
+            <if test="owerPhone != null">ower_phone = #{owerPhone},</if>
+            <if test="villageId != null ">village_id = #{villageId},</if>
+            <if test="villageName != null">village_name = #{villageName},</if>
+            <if test="address != null">address = #{address},</if>
+            <if test="houseNo != null">house_no = #{houseNo},</if>
+            <if test="payType != null ">pay_type = #{payType},</if>
+            <if test="publishId != null ">publish_id = #{publishId},</if>
+            <if test="state != null ">state = #{state},</if>
+            <if test="createTime != null ">create_time = #{createTime},</if>
+            <if test="createName != null">create_name = #{createName},</if>
+            <if test="updateTime != null ">update_time = #{updateTime},</if>
+            <if test="updateName != null">update_name = #{updateName},</if>
+            <if test="remark != null">remark = #{remark},</if>
+            <if test="houseHall != null">house_Hall = #{houseHall},</if>
+            <if test="code != null">code = #{code},</if>
+            <if test="faceUrl != null">face_Url = #{faceUrl},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteHouseRoomById" parameterType="Long">
+        delete from house_room where id = #{id}
+    </delete>
+
+    <delete id="deleteHouseRoomByIds" parameterType="String">
+        delete from house_room where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+
+    <insert id="insertHouseImage" parameterType="HouseRoom">
+        insert into house_image(house_id,image_name,image_path,img_url,image_size) VALUES
+        <foreach collection ="imageList" item="houseImage" separator =",">
+            (#{id}, #{houseImage.imageName}, #{houseImage.imagePath}, #{houseImage.imageUrl}, #{houseImage.imageSize})
+        </foreach >
+    </insert>
+
+
+    <insert id="insertHouseFeature" parameterType="HouseRoom">
+        insert into house_feature(house_id,feature) VALUES
+        <foreach collection ="featureList" item="houseFeature" separator =",">
+            (#{id}, #{houseFeature.feature})
+        </foreach >
+    </insert>
+
+    <select id="selectHouseImage" parameterType="HouseRoom" resultMap="HouseImageResult">
+        select * from house_image
+        <where>
+            and house_id = #{id}
+        </where>
+    </select>
+
+
+    <select id="selectHouseFeature" parameterType="HouseRoom" resultMap="HouseFeatureResult">
+        select * from house_feature
+        <where>
+            and house_id = #{id}
+        </where>
+    </select>
+
+</mapper>

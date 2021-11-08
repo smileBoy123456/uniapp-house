@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<th:block th:include="include :: header('注册')" />
+	<th:block th:include="include :: jquery-steps-css" />
+</head>
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox">
+                    <div class="ibox-title">
+                        <h5>欢迎注册矿工世界</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <form id="form" action="/" class="wizard-big" method="post">
+                            <h1>账户</h1>
+                            <fieldset>
+                                <h2>账户信息</h2>
+                                <div class="row">
+                                    <div class="col-sm-8">
+                                        <div class="form-group">
+                                            <label>用户名 *</label>
+                                            <input id="userName" name="userName" type="text" class="form-control required" minlength="6">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>密码 *</label>
+                                            <input id="password" name="password" type="text" class="form-control required" minlength="6">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>确认密码 *</label>
+                                            <input id="confirm" name="confirm" type="text" class="form-control required">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="text-center">
+                                            <div style="margin-top: 20px">
+                                                <i class="fa fa-sign-in" style="font-size: 180px;color: #e5e5e5 "></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </fieldset>
+                            <h1>个人资料</h1>
+                            <fieldset>
+                                <h2>个人资料信息</h2>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>姓名 *</label>
+                                            <input id="name" name="name" type="text" class="form-control required">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>手机号码 *</label>
+                                            <input id="phonenumber" name="phonenumber" class="form-control required isPhone" type="text" maxlength="11">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Email *</label>
+                                            <input id="email" name="email" type="text" class="form-control required email">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>lualu提现地址 *</label>
+                                            <input id="address" name="address" type="text" class="form-control required">
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <h1>完成</h1>
+                            <fieldset>
+                                <h2>条款：邀请人不可改变</h2>
+                                <div class="form-group">
+                                    <label>邀请码(选填)</label>
+                                    <input id="pcode" name="pcode" type="text" class="form-control" maxlength="6"  minlength="6">
+                                </div>
+                                <input id="acceptTerms" name="acceptTerms" type="checkbox" class="required">
+                                <label for="acceptTerms">我同意注册条款</label>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <th:block th:include="include :: footer" />
+    <th:block th:include="include :: jquery-steps-js" />
+    <script>
+	    $(document).ready(function () {
+	        $("#form").steps({
+	            bodyTag: "fieldset", onStepChanging: function (event, currentIndex, newIndex) {
+	                if (currentIndex > newIndex) {
+	                    return true
+	                }
+	                if (newIndex === 3 && Number($("#age").val()) < 18) {
+	                    return false
+	                }
+	                var form = $(this);
+	                if (currentIndex < newIndex) {
+	                    $(".body:eq(" + newIndex + ") label.error", form).remove();
+	                    $(".body:eq(" + newIndex + ") .error", form).removeClass("error")
+	                }
+	                form.validate().settings.ignore = ":disabled,:hidden";
+	                return form.valid()
+	            }, onStepChanged: function (event, currentIndex, priorIndex) {
+	                if (currentIndex === 2 && Number($("#age").val()) >= 18) {
+	                    $(this).steps("next")
+	                }
+	                if (currentIndex === 2 && priorIndex === 3) {
+	                    $(this).steps("previous")
+	                }
+	            }, onFinishing: function (event, currentIndex) {
+	                var form = $(this);
+	                form.validate().settings.ignore = ":disabled";
+	                return form.valid()
+	            }, onFinished: function (event, currentIndex) {
+	                var form = $(this);
+	                var loginName = $.common.trim($("input[name='userName']").val());
+                    var userName = $.common.trim($("input[name='name']").val());
+                    var password = $.common.trim($("input[name='password']").val());
+                    var phonenumber = $.common.trim($("input[name='phonenumber']").val());
+                    var email = $.common.trim($("input[name='email']").val());
+                    var address = $.common.trim($("input[name='address']").val());
+                    var pcode = $.common.trim($("input[name='pcode']").val());
+
+                    $.ajax({
+                        type: "post",
+                        url: "/web/checkLoginNameUnique",
+                        data: {
+                            loginName: loginName,
+                            userName: userName,
+                            password: password
+                        },
+                        success: function(r) {
+                            if (r == 0) {
+                                $.ajax({
+                                    type: "post",
+                                    url: "/web/registerSave",
+                                    data: {
+                                        loginName: loginName,
+                                        userName: userName,
+                                        password: password,
+                                        phonenumber: phonenumber,
+                                        email: email,
+                                        address: address,
+                                        pcode: pcode
+                                    },
+                                    success: function(r) {
+                                        if (r.code == 0) {
+                                            form.submit()
+                                        } else {
+                                            $.modal.msgWarning(r.msg);
+                                        }
+                                    }
+                                });
+                            } else {
+                                $.modal.msgWarning("该用户已存在");
+                            }
+                        }
+                    });
+	            }
+	        }).validate({
+	            errorPlacement: function (error, element) {
+	                element.before(error)
+	            }, rules: {
+	                confirm: {equalTo: "#password"}
+	            }
+	        })
+	    });
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" >
+<head>
+	<th:block th:include="include :: header('实名认证')" />
+	<th:block th:include="include :: select2-css" />
+</head>
+<body>
+	<div class="main-content">
+		<form class="form-horizontal" id="form-user-auth" th:object="${user}">
+			<input name="userId"  type="hidden"  th:field="*{userId}" />
+			<div class="row">
+				<div class="col-sm-10">
+					<div class="form-group">
+						<label class="col-sm-4 control-label">审核状态：</label>
+						<div class="col-sm-8">
+							<select name="authStatus" class="form-control m-b" th:with="type=${@dict.getType('sys_auth_user')}">
+								<option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}" th:field="*{authStatus}"></option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-10">
+					<div class="form-group">
+						<label class="col-sm-4 control-label">备注：</label>
+						<div class="col-sm-8">
+							<input name="remark" placeholder="不通过原因" class="form-control" type="text" maxlength="300" th:field="*{remark}">
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	<th:block th:include="include :: footer" />
+	<th:block th:include="include :: select2-js" />
+	<script type="text/javascript">
+
+		function submitHandler() {
+	        if ($.validate.form()) {
+	        	$.operate.save(ctx + "system/user/checkUserStatus", $('#form-user-auth').serialize());
+	        }
+	    }
+	</script>
+</body>
+
+</html>
