@@ -24,7 +24,7 @@
 - [其他开源项目]
 
 1. 开源精神 https://gitee.com/cookieBoy/share
-2. 商城项目 https://gitee.com/cookieBoy/club
+2. 开源博客 https://gitee.com/cookieBoy/source-byte
 
 
 ## 项目简介
