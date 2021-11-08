@@ -12,7 +12,7 @@
 		           <view class="demo-warter" v-for="(item, index) in leftList" :key="index">
 		               <!-- 警告：微信小程序中需要hx2.8.11版本才支持在template中结合其他组件，比如下方的lazy-load组件 -->
 		               <u-lazy-load threshold="300" border-radius="12" :image="item.image" :index="index"
-		                            @click="clickImage"></u-lazy-load>
+		                           @click="clickImage(item.id)"></u-lazy-load>
 		               <view class="item-title">{{item.villageName}} {{item.type == '整租' ? item.houseNum + item.houseHall + item.toiletNum : item.roomType+'-朝'+item.direction}}</view>
 		   			<view class="item-price">￥{{item.price}}</view>
 		               <view class="item-desc">{{item.type}} | {{item.type == '整租' ? item.houseArea : item.roomArea}}㎡ {{item.floor}}</view>
@@ -21,7 +21,7 @@
 		       <template v-slot:right="{rightList}">
 		           <view class="demo-warter" v-for="(item, index) in rightList" :key="index">
 		               <u-lazy-load threshold="-450" border-radius="10" :image="item.image" :index="index"
-		                            @click="clickImage"></u-lazy-load>
+		                           @click="clickImage(item.id)"></u-lazy-load>
 		               <view class="item-title">{{item.villageName}} {{item.type == '整租' ? item.houseNum + item.houseHall + item.toiletNum : item.roomType+'-朝'+item.direction}}</view>
 		               <view class="item-price">￥{{item.price}}</view>
 		   			<view class="item-desc">{{item.type}} | {{item.type == '整租' ? item.houseArea : item.roomArea}}㎡ {{item.floor}}</view>
@@ -164,8 +164,13 @@
             		this.loadStatus = 'loadmore';
             	});
             },
-			clickImage() {
-			    this.$u.route('/pages/detail/detail');
+			clickImage(houseId) {
+			    this.$u.route({
+			    	url: '/pages/detail/detail',
+			    	params: {
+			    		houseId: houseId
+			    	}
+			    })
 			},
 			//接收菜单结果
 			confirm(e) {
