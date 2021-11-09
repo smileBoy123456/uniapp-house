@@ -16,6 +16,7 @@ public class DySmsUtil {
 
     public static boolean sendSms(String phone, JSONObject paramJson){
         boolean result = true;
+        // 换成自己的
         String url = "http://***/sms";
         try {
             String str = HttpUtils.sendPost(url,
