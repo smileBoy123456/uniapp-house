@@ -11,7 +11,7 @@
 			</view>
 		</u-navbar>
 		<view>
-			<u-swiper :list="swiperList"></u-swiper>
+			<u-swiper :list="swiperList" height="400"></u-swiper>
 		</view>
 		<view>
 			<view class="rowClass">
@@ -71,10 +71,14 @@
 				scrollTop: 0,
 				houseList: [],
 				swiperList: [
-                    {
-						image: 'https://webimg.ziroom.com/df3a45f1-60db-4692-9a2b-c427200192db.jpg',
-                        title: '身无彩凤双飞翼，心有灵犀一点通'
-                    },
+					{
+						image: '/static/img/index/swiper/swiper.jpg',
+					    title: '身无彩凤双飞翼，心有灵犀一点通'
+					},
+      //               {
+						// image: 'https://webimg.ziroom.com/df3a45f1-60db-4692-9a2b-c427200192db.jpg',
+      //                   title: '身无彩凤双飞翼，心有灵犀一点通'
+      //               },
                 ],
 				noticeList: [
 					'邀请好友送大礼',
