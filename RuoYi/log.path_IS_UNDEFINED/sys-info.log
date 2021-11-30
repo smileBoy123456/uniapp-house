@@ -1,0 +1,64 @@
+19:13:32.360 [main] INFO  c.r.RuoYiApplication - [logStarting,50] - Starting RuoYiApplication on WIN-FO4EE8GP4A0 with PID 6812 (C:\Users\Administrator\Documents\HBuilderProjects\house\RuoYi\ruoyi-admin\target\classes started by Administrator in C:\Users\Administrator\Documents\HBuilderProjects\house\RuoYi)
+19:13:32.376 [main] INFO  c.r.RuoYiApplication - [logStartupProfileInfo,679] - The following profiles are active: druid
+19:13:36.375 [main] INFO  o.a.s.c.e.EhCacheManager - [getCache,158] - Cache with name 'sys-authCache' does not yet exist.  Creating now.
+19:13:36.375 [main] INFO  o.a.s.c.e.EhCacheManager - [getCache,165] - Added EhCache named [sys-authCache]
+19:13:38.407 [main] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [loginRecordCache]
+19:13:38.629 [main] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [sys-userCache]
+19:13:38.630 [main] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [sys-userCache]
+19:13:39.627 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8080"]
+19:13:39.643 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+19:13:39.644 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet Engine: Apache Tomcat/9.0.13
+19:13:39.878 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+19:13:45.630 [main] INFO  c.a.d.p.DruidDataSource - [init,991] - {dataSource-1} inited
+19:13:45.707 [main] INFO  o.q.i.StdSchedulerFactory - [instantiate,1208] - Using default implementation for ThreadExecutor
+19:13:45.724 [main] INFO  o.q.c.SchedulerSignalerImpl - [<init>,61] - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+19:13:45.724 [main] INFO  o.q.c.QuartzScheduler - [<init>,229] - Quartz Scheduler v.2.3.0 created.
+19:15:45.746 [main] INFO  o.q.c.QuartzScheduler - [initialize,294] - Scheduler meta-data: Quartz Scheduler (v2.3.0) 'RuoyiScheduler' with instanceId 'WIN-FO4EE8GP4A01638270825708'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 20 threads.
+  Using job-store 'org.springframework.scheduling.quartz.LocalDataSourceJobStore' - which supports persistence. and is clustered.
+
+19:15:45.746 [main] INFO  o.q.i.StdSchedulerFactory - [instantiate,1362] - Quartz scheduler 'RuoyiScheduler' initialized from an externally provided properties instance.
+19:15:45.746 [main] INFO  o.q.i.StdSchedulerFactory - [instantiate,1366] - Quartz scheduler version: 2.3.0
+19:15:45.746 [main] INFO  o.q.c.QuartzScheduler - [setJobFactory,2287] - JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@56d9bc5f
+19:17:45.855 [main] INFO  o.q.c.QuartzScheduler - [shutdown,666] - Scheduler RuoyiScheduler_$_WIN-FO4EE8GP4A01638270825708 shutting down.
+19:17:45.856 [main] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler RuoyiScheduler_$_WIN-FO4EE8GP4A01638270825708 paused.
+19:17:45.856 [main] INFO  o.q.c.QuartzScheduler - [shutdown,740] - Scheduler RuoyiScheduler_$_WIN-FO4EE8GP4A01638270825708 shutdown complete.
+19:17:45.857 [main] INFO  sys-user - [shutdownAsyncManager,56] - ====关闭后台任务任务线程池====
+19:17:45.906 [main] INFO  c.a.d.p.DruidDataSource - [close,1928] - {dataSource-1} closed
+19:17:45.906 [main] INFO  o.a.c.c.StandardService - [log,173] - Stopping service [Tomcat]
+20:02:03.862 [main] INFO  c.r.RuoYiApplication - [logStarting,50] - Starting RuoYiApplication on WIN-FO4EE8GP4A0 with PID 1176 (C:\Users\Administrator\Documents\HBuilderProjects\house\RuoYi\ruoyi-admin\target\classes started by Administrator in C:\Users\Administrator\Documents\HBuilderProjects\house\RuoYi)
+20:02:03.862 [main] INFO  c.r.RuoYiApplication - [logStartupProfileInfo,679] - The following profiles are active: druid
+20:02:08.270 [main] INFO  o.a.s.c.e.EhCacheManager - [getCache,158] - Cache with name 'sys-authCache' does not yet exist.  Creating now.
+20:02:08.287 [main] INFO  o.a.s.c.e.EhCacheManager - [getCache,165] - Added EhCache named [sys-authCache]
+20:02:10.068 [main] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [loginRecordCache]
+20:02:10.271 [main] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [sys-userCache]
+20:02:10.271 [main] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [sys-userCache]
+20:02:11.068 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8080"]
+20:02:11.084 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+20:02:11.084 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet Engine: Apache Tomcat/9.0.13
+20:02:11.302 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+20:02:12.992 [main] INFO  c.a.d.p.DruidDataSource - [init,991] - {dataSource-1} inited
+20:02:13.070 [main] INFO  o.q.i.StdSchedulerFactory - [instantiate,1208] - Using default implementation for ThreadExecutor
+20:02:13.086 [main] INFO  o.q.c.SchedulerSignalerImpl - [<init>,61] - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+20:02:13.086 [main] INFO  o.q.c.QuartzScheduler - [<init>,229] - Quartz Scheduler v.2.3.0 created.
+20:02:13.102 [main] INFO  o.q.c.QuartzScheduler - [initialize,294] - Scheduler meta-data: Quartz Scheduler (v2.3.0) 'RuoyiScheduler' with instanceId 'WIN-FO4EE8GP4A01638273733070'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 20 threads.
+  Using job-store 'org.springframework.scheduling.quartz.LocalDataSourceJobStore' - which supports persistence. and is clustered.
+
+20:02:13.102 [main] INFO  o.q.i.StdSchedulerFactory - [instantiate,1362] - Quartz scheduler 'RuoyiScheduler' initialized from an externally provided properties instance.
+20:02:13.102 [main] INFO  o.q.i.StdSchedulerFactory - [instantiate,1366] - Quartz scheduler version: 2.3.0
+20:02:13.102 [main] INFO  o.q.c.QuartzScheduler - [setJobFactory,2287] - JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@18c49ecb
+20:02:14.117 [main] INFO  o.q.c.QuartzScheduler - [shutdown,666] - Scheduler RuoyiScheduler_$_WIN-FO4EE8GP4A01638273733070 shutting down.
+20:02:14.117 [main] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler RuoyiScheduler_$_WIN-FO4EE8GP4A01638273733070 paused.
+20:02:14.117 [main] INFO  o.q.c.QuartzScheduler - [shutdown,740] - Scheduler RuoyiScheduler_$_WIN-FO4EE8GP4A01638273733070 shutdown complete.
+20:02:14.117 [main] INFO  sys-user - [shutdownAsyncManager,56] - ====关闭后台任务任务线程池====
+20:02:14.149 [main] INFO  c.a.d.p.DruidDataSource - [close,1928] - {dataSource-1} closed
+20:02:14.149 [main] INFO  o.a.c.c.StandardService - [log,173] - Stopping service [Tomcat]
