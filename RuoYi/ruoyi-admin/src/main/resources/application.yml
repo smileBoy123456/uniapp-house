@@ -141,4 +141,14 @@ xss:
   # 匹配链接
   urlPatterns: /system/*,/monitor/*,/tool/*
 
+luaLu:
+  static:
+    # 域名，对应下载文件的域
+    domain: 8.136.213.245
+    # 是否开启hhtps
+    xxl: false
+  aliyun:
+    accessKey: 1
+    secretKey: 2
+
 
