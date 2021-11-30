@@ -62,3 +62,52 @@
 20:02:14.117 [main] INFO  sys-user - [shutdownAsyncManager,56] - ====关闭后台任务任务线程池====
 20:02:14.149 [main] INFO  c.a.d.p.DruidDataSource - [close,1928] - {dataSource-1} closed
 20:02:14.149 [main] INFO  o.a.c.c.StandardService - [log,173] - Stopping service [Tomcat]
+20:09:35.776 [main] INFO  c.r.RuoYiApplication - [logStarting,50] - Starting RuoYiApplication on WIN-FO4EE8GP4A0 with PID 2632 (C:\Users\Administrator\Documents\HBuilderProjects\house\RuoYi\ruoyi-admin\target\classes started by Administrator in C:\Users\Administrator\Documents\HBuilderProjects\house\RuoYi)
+20:09:35.782 [main] INFO  c.r.RuoYiApplication - [logStartupProfileInfo,679] - The following profiles are active: druid
+20:09:39.460 [main] INFO  o.a.s.c.e.EhCacheManager - [getCache,158] - Cache with name 'sys-authCache' does not yet exist.  Creating now.
+20:09:39.461 [main] INFO  o.a.s.c.e.EhCacheManager - [getCache,165] - Added EhCache named [sys-authCache]
+20:09:41.266 [main] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [loginRecordCache]
+20:09:41.452 [main] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [sys-userCache]
+20:09:41.453 [main] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [sys-userCache]
+20:09:42.288 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8080"]
+20:09:42.300 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+20:09:42.300 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet Engine: Apache Tomcat/9.0.13
+20:09:42.511 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+20:09:44.125 [main] INFO  c.a.d.p.DruidDataSource - [init,991] - {dataSource-1} inited
+20:09:44.195 [main] INFO  o.q.i.StdSchedulerFactory - [instantiate,1208] - Using default implementation for ThreadExecutor
+20:09:44.214 [main] INFO  o.q.c.SchedulerSignalerImpl - [<init>,61] - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+20:09:44.214 [main] INFO  o.q.c.QuartzScheduler - [<init>,229] - Quartz Scheduler v.2.3.0 created.
+20:09:44.226 [main] INFO  o.q.c.QuartzScheduler - [initialize,294] - Scheduler meta-data: Quartz Scheduler (v2.3.0) 'RuoyiScheduler' with instanceId 'WIN-FO4EE8GP4A01638274184197'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 20 threads.
+  Using job-store 'org.springframework.scheduling.quartz.LocalDataSourceJobStore' - which supports persistence. and is clustered.
+
+20:09:44.226 [main] INFO  o.q.i.StdSchedulerFactory - [instantiate,1362] - Quartz scheduler 'RuoyiScheduler' initialized from an externally provided properties instance.
+20:09:44.227 [main] INFO  o.q.i.StdSchedulerFactory - [instantiate,1366] - Quartz scheduler version: 2.3.0
+20:09:44.230 [main] INFO  o.q.c.QuartzScheduler - [setJobFactory,2287] - JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@6178b3bf
+20:09:45.981 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - [initHandlerMethods,69] - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+20:09:48.296 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - [start,160] - Context refreshed
+20:09:48.354 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - [start,163] - Found 1 custom documentation plugin(s)
+20:09:48.461 [main] INFO  s.d.s.w.s.ApiListingReferenceScanner - [scan,41] - Scanning for api listing references
+20:09:49.115 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-8080"]
+20:09:49.135 [main] INFO  o.a.t.u.n.NioSelectorPool - [log,173] - Using a shared selector for servlet write/read
+20:09:49.185 [main] INFO  c.r.RuoYiApplication - [logStarted,59] - Started RuoYiApplication in 14.109 seconds (JVM running for 18.988)
+20:09:50.268 [Quartz Scheduler [RuoyiScheduler]] INFO  o.q.c.QuartzScheduler - [start,547] - Scheduler RuoyiScheduler_$_WIN-FO4EE8GP4A01638274184197 started.
+20:10:37.017 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+20:10:37.073 [http-nio-8080-exec-2] INFO  o.a.s.s.m.AbstractValidatingSessionManager - [enableSessionValidation,233] - Enabling session validation scheduler...
+20:10:37.096 [http-nio-8080-exec-2] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [shiro-activeSessionCache]
+20:10:38.076 [schedule-pool-1] INFO  c.r.f.s.w.s.OnlineWebSessionManager - [validateSessions,100] - invalidation sessions...
+20:10:38.226 [schedule-pool-1] INFO  c.r.f.s.w.s.OnlineWebSessionManager - [validateSessions,159] - Finished invalidation session. [1] sessions were stopped.
+20:10:42.462 [schedule-pool-1] INFO  sys-user - [run,108] - [127.0.0.1]内网IP[admin][Error][密码输入错误1次]
+20:10:45.567 [schedule-pool-3] INFO  sys-user - [run,108] - [127.0.0.1]内网IP[admin][Success][登录成功]
+20:10:46.841 [http-nio-8080-exec-20] INFO  i.l.c.EpollProvider - [<clinit>,68] - Starting without optional epoll library
+20:10:46.845 [http-nio-8080-exec-20] INFO  i.l.c.KqueueProvider - [<clinit>,70] - Starting without optional kqueue library
+20:16:52.505 [Thread-59] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler RuoyiScheduler_$_WIN-FO4EE8GP4A01638274184197 paused.
+20:16:52.514 [Thread-59] INFO  o.q.c.QuartzScheduler - [shutdown,666] - Scheduler RuoyiScheduler_$_WIN-FO4EE8GP4A01638274184197 shutting down.
+20:16:52.515 [Thread-59] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler RuoyiScheduler_$_WIN-FO4EE8GP4A01638274184197 paused.
+20:16:52.516 [Thread-59] INFO  o.q.c.QuartzScheduler - [shutdown,740] - Scheduler RuoyiScheduler_$_WIN-FO4EE8GP4A01638274184197 shutdown complete.
+20:16:52.517 [Thread-59] INFO  sys-user - [shutdownSpringSessionValidationScheduler,39] - ====关闭会话验证任务====
+20:16:52.518 [Thread-59] INFO  sys-user - [shutdownAsyncManager,56] - ====关闭后台任务任务线程池====
