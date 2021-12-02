@@ -51,7 +51,7 @@
 
 ### 「租房」交流群
 <p>
-![在这里插入图片描述](https://img-blog.csdnimg.cn/df9928e2ebe6497f94fb7fe1a207ced7.jpg?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6Km5U2lyKGNvb2tpZUJveSk=,size_7,color_FFFFFF,t_70,g_se,x_16#pic_center)
+![输入图片说明](https://img-blog.csdnimg.cn/df9928e2ebe6497f94fb7fe1a207ced7.jpg?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6Km5U2lyKGNvb2tpZUJveSk=,size_7,color_FFFFFF,t_70,g_se,x_16#pic_center)
 </p>
 
 ## 结语
