@@ -23,8 +23,8 @@
 
 - [其他开源项目]
 
-1. 开源精神 https://gitee.com/cookieBoy/share
-2. 开源博客 https://gitee.com/cookieBoy/source-byte
+1. 开源组织 https://gitee.com/open-source-byte
+2. 开源字节 https://gitee.com/cookieBoy/source-byte
 
 
 ## 项目简介
