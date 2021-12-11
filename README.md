@@ -1,11 +1,9 @@
-# uniapp+若依 开发租房小程序 
-
-#### 介绍
-多端适用的租房小程序，带管理员后台。是一个完整的项目，可以直接使用。
-
 ```
 🕙 分享是一种美德，右上随手点个 🌟 Star，谢谢 
 ```
+
+#### 介绍
+多端适用的租房小程序，带管理员后台。是一个完整的项目，可以直接使用。
 
 项目地址：http://8.136.213.245:8080/h5/
 
@@ -27,8 +25,8 @@
 
 - [其他开源项目]
 
-1. 开源组织 https://gitee.com/open-source-byte
-2. 开源字节 https://gitee.com/cookieBoy/source-byte
+1. 开源字节 https://gitee.com/open-source-byte
+2. 源字节 https://gitee.com/cookieBoy/source-byte
 
 
 ## 项目简介
