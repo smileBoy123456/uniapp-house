@@ -24,7 +24,7 @@ export default {
 	data() {
 		return {
 			appUrl: false,
-			url: "http://http//8.136.213.245/profile/apk/yixin.apk",
+			url: "http://8.136.213.245/profile/apk/yixin.apk",
 			itemList: [
 				{
 					head: "初始密码是什么？",
@@ -74,7 +74,7 @@ export default {
 				this.appUrl = true;
 				return;
 			}
-			var downloadUrl = 'https://minersworld.cn/profile/apk/yixin.apk'; // 下载地址
+			var downloadUrl = 'http://8.136.213.245/profile/apk/yixin.apk'; // 下载地址
 			var urlStr = encodeURI(downloadUrl)
 			// #ifdef APP-PLUS
 			plus.runtime.openURL(urlStr);
