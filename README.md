@@ -28,7 +28,7 @@
 - [其他开源项目]
 
 1. 开源字节 https://gitee.com/open-source-byte
-2. 源字节 https://gitee.com/cookieBoy/source-byte
+2. 开源字节 https://gitee.com/cookieBoy/source-byte
 
 
 ## 项目简介
