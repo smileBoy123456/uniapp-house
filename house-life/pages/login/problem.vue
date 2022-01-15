@@ -24,18 +24,28 @@ export default {
 	data() {
 		return {
 			appUrl: false,
-			url: "https://minersworld.cn/profile/apk/yixin.apk",
+			url: "http://http//8.136.213.245/profile/apk/yixin.apk",
 			itemList: [
 				{
 					head: "初始密码是什么？",
 					body: "初始密码默认为手机号码,为了您的账户安全,请进入个人中心进行修改。",
-					open: true,
+					open: false,
 				},
 				{
 					head: "技术支持电话是多少？",
 					body: "联系电话：18720989281",
 					open: false,
-				}
+				},
+				{
+					head: "关于我们",
+					body: "我们传播开源的理念,推广开源项目,为 IT 开发者提供了一个发现、使用、并交流开源技术的契机。我们拥有敏捷的互联网产品思维，不断的去发现和创造更符合社会需要的产品，为了开源，理想和自由不懈努力。" ,
+					open: true,
+				},
+				{
+					head: "加入我们",
+					body: "邮箱：261648947@qq.com",
+					open: false,
+				},
 			],
 		}
 	},

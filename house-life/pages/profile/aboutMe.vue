@@ -7,7 +7,7 @@
 	<view class="titleZ text-center align-center">
 		<text class="text-bold">关于作者</text>
 		<view class="contentZ">
-			<text class="text-xl">项目作者：詹Sir，一名6年经验、乌黑秀发的九零后全栈(Java)程序员，坐标杭州</text>
+			<text class="text-xl">项目作者：詹Sir，一名10+年经验、乌黑秀发的九零后全栈(Java)程序员，坐标杭州</text>
 			<view>
 				<text class="text-bold">想学习？有需求？有项目？</text>
 			</view>

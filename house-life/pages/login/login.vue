@@ -13,8 +13,7 @@
 		<view class="buttom">
 			<view class="loginType">
 				<view class="wechat item">
-					<view class="icon"><u-icon size="70" name="weixin-fill" color="rgb(83,194,64)" @click="wxLogin"></u-icon></view>
-					微信
+					<view class="icon"><u-icon size="60" name="server-man" color="#999" @click="server"></u-icon></view>
 				</view>
 			</view>
 		</view>
@@ -59,8 +58,8 @@ export default {
 				url: 'pages/login/problem'
 			})
 		},
-		wxLogin(){
-			this.$mytip.toast('请使用密码登录')
+		server(){
+			window.open ('http://8.136.213.245')
 		}
 	}
 };
@@ -119,17 +118,20 @@ export default {
 	}
 	.buttom {
 		.loginType {
-			display: flex;
-			padding: 350rpx 150rpx 150rpx 150rpx;
-			justify-content:center;
-			
-			.item {
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				color: $u-content-color;
-				font-size: 28rpx;
-			}
+			font-size: 14px;
+			position: fixed;
+			right: 50rpx;
+			bottom: 50rpx;
+			width: 60px;
+			height: 60px;
+			padding: 4px;
+			cursor: pointer;
+			background: #FFF;
+			text-align: center;
+			line-height: 60px;
+			border-radius: 100%;
+			-webkit-box-shadow: 0px 1px 20px 0px rgba(0,0,0,0.1),inset 0px -1px 0px 0px rgba(0,0,0,0.1);
+			box-shadow: 0px 1px 20px 0px rgba(0,0,0,0.1),inset 0px -1px 0px 0px rgba(0,0,0,0.1);
 		}
 	}
 }
