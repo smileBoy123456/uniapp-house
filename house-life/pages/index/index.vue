@@ -75,10 +75,6 @@
 						image: '/static/img/index/swiper/swiper.jpg',
 					    title: '身无彩凤双飞翼，心有灵犀一点通'
 					},
-      //               {
-						// image: 'https://webimg.ziroom.com/df3a45f1-60db-4692-9a2b-c427200192db.jpg',
-      //                   title: '身无彩凤双飞翼，心有灵犀一点通'
-      //               },
                 ],
 				noticeList: [
 					'邀请好友送大礼',
@@ -111,7 +107,7 @@
 			// 检测升级
 			// this.checkUpdate();
 			// 流量统计
-			this.appSysFlowInfo()
+			// this.appSysFlowInfo()
 		},
 		onPageScroll(e) {
 		    this.scrollTop = e.scrollTop;
