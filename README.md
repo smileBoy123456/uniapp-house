@@ -27,7 +27,7 @@
 
 - [其他开源项目]
 
-1. 开源字节组织介绍 https://gitee.com/open-source-byte
+1. 开源字节介绍 https://gitee.com/open-source-byte
 2. 开源字节快速开发平台 https://gitee.com/cookieBoy/source-byte
 
 
