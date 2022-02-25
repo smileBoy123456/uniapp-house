@@ -19,7 +19,7 @@
 
 2. 本项目不在任何平台出售,如有发现请积极举报！
 
-3. 为更好的用户体验，可进入项目-》我的-》问题反馈，下载APP
+3. 为了更好的体验，友情提示此项目是一个全栈项目，熟练掌握后你就比大多数人牛掰了，认真刻苦的掌握它，累觉不爱ღ( ´･ᴗ･` )比心
 
 ***不要只是白嫖 ,如果帮到你了麻烦点个Star***
 
@@ -29,7 +29,6 @@
 
 1. 开源字节介绍 https://gitee.com/open-source-byte
 2. 开源字节快速开发平台 https://gitee.com/cookieBoy/source-byte
-
 
 ## 项目简介
 
@@ -50,8 +49,8 @@
 2.  邮箱：261648947@qq.com
 
 ### 关于技术栈
-> * 目前使用 `「UVIEW」` 制作的前台，感谢作者开源！
-> * 目前使用 `「若依」` 制作的后台，感谢作者开源！
+> * 目前使用 `「UVIEW」` 制作的前台，感谢作者开源！前端技术栈 ES6、vue、vuex、vue-router、vue-cli、axios、element-ui
+> * 目前使用 `「若依」` 制作的后台，感谢作者开源！后端技术栈 SpringBoot、MyBatis、Spring Security、Jwt
 
 ### 「租房」交流群
 ![输入图片说明](https://img-blog.csdnimg.cn/df9928e2ebe6497f94fb7fe1a207ced7.jpg)
