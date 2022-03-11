@@ -26,7 +26,7 @@
 - [其他开源项目]
 
 1. 开源字节(传播开源的理念) https://gitee.com/open-source-byte
-2. 开源字节低代码开发平台(追求极致用户体验) https://gitee.com/cookieBoy/source-byte
+2. 开源字节低代码开发平台(追求极致用户体验) https://gitee.com/open-source-byte/source-vue
 
 ## 项目简介
 
