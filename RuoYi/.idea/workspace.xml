@@ -1,24 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d4ede919-2760-4c87-9cae-664e03b2f6d4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/log.path_IS_UNDEFINED/sys-error.log" beforeDir="false" afterPath="$PROJECT_DIR$/log.path_IS_UNDEFINED/sys-error.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/log.path_IS_UNDEFINED/sys-info.log" beforeDir="false" afterPath="$PROJECT_DIR$/log.path_IS_UNDEFINED/sys-info.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/log.path_IS_UNDEFINED/sys-user.log" beforeDir="false" afterPath="$PROJECT_DIR$/log.path_IS_UNDEFINED/sys-user.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/system/controller/WebIndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/system/controller/WebIndexController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-framework/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-framework/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-framework/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-framework/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-framework/target/ruoyi-framework-4.0.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-framework/target/ruoyi-framework-4.0.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-generator/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-generator/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-generator/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-generator/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-generator/target/ruoyi-generator-4.0.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-generator/target/ruoyi-generator-4.0.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-quartz/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-quartz/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-quartz/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-quartz/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-quartz/target/ruoyi-quartz-4.0.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-quartz/target/ruoyi-quartz-4.0.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-system/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-system/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-system/target/ruoyi-system-4.0.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/target/ruoyi-system-4.0.0.jar" afterDir="false" />
-    </list>
+    <list default="true" id="d4ede919-2760-4c87-9cae-664e03b2f6d4" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,7 +112,7 @@
       <workItem from="1644649237644" duration="42000" />
       <workItem from="1644649365913" duration="242000" />
       <workItem from="1647095533184" duration="1431000" />
-      <workItem from="1647255623096" duration="319000" />
+      <workItem from="1647255623096" duration="936000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1638273825589</created>
