@@ -131,50 +131,6 @@ public class WebIndexController extends BaseController {
 		return ajaxResult;
     }
 
-    /**
-    * @Description: 保存流量信息
-    * @author: zy
-    * @Return: 返回uv标识
-    */
-	@PostMapping("/saveSysFlowInfo")
-	@ResponseBody
-    public String saveSysFlowInfo(HttpServletRequest request, HttpServletResponse response){
-		// 定义pv.uv.ip标识，如果redis中存在，则加1，否则初始1
-		String pvFlow = "pvFlow:"+ DateUtils.getDate();
-		String uvFlow = "uvFlow:"+ DateUtils.getDate();
-		String ipFlow = "ipFlow:"+ DateUtils.getDate();
-		// pvFlow进行累计操作
-		Long pvFlowNum = 1L;
-		if(StringUtils.isNull(redisUtil.get(pvFlow))){
-			redisUtil.set(pvFlow,pvFlowNum, Constants.SYS_FLOW_TIME);
-		}else {
-			redisUtil.set(pvFlow,redisUtil.incr(pvFlow,1), Constants.SYS_FLOW_TIME);
-		}
-
-		// uvFlow进行cookie去重
-		HashSet uvSet = new HashSet<>();
-		if(StringUtils.isNotNull(redisUtil.get(uvFlow))){
-			uvSet = ((HashSet) redisUtil.get(uvFlow));
-		}
-		String uvCode = request.getParameter("uvCode");
-		if(StringUtils.isEmpty(uvCode)){
-			uvCode = CodeUtil.getCode();
-		}
-		uvSet.add(uvCode);
-		redisUtil.set(uvFlow,uvSet, Constants.SYS_FLOW_TIME);
-
-		// ipFlow进行ip去重
-		String ipAddr = IpUtils.getIpAddr(request);
-		HashSet ipSet = new HashSet<>();
-		// 判断IP键是否存在
-		if(StringUtils.isNotNull(redisUtil.get(ipFlow))){
-			ipSet = ((HashSet) redisUtil.get(ipFlow));
-		}
-		ipSet.add(ipAddr);
-		redisUtil.set(ipFlow,ipSet, Constants.SYS_FLOW_TIME);
-		return uvCode;
-	}
-
 	/**
 	 * @Description: 保存流量信息
 	 * @author: zy
@@ -182,7 +138,7 @@ public class WebIndexController extends BaseController {
 	 */
 	@PostMapping("/appSysFlowInfo")
 	@ResponseBody
-	public AjaxResult appSysFlowInfo(HttpServletRequest request, @RequestBody SysFlowLog sysFlowLog){
+	public AjaxResult appSysFlowInfo(HttpServletRequest request){
 		String msg = "流量累积中";
 		// 定义pv.uv.ip标识，如果redis中存在，则加1，否则初始1
 		String pvFlow = "pvFlow:"+ DateUtils.getDate();
@@ -201,7 +157,8 @@ public class WebIndexController extends BaseController {
 		if(StringUtils.isNotNull(redisUtil.get(uvFlow))){
 			uvSet = ((HashSet) redisUtil.get(uvFlow));
 		}
-		String uvCode = sysFlowLog.getUvCode();
+
+		String uvCode = request.getParameter("uvCode");
 		if(StringUtils.isEmpty(uvCode)){
 			uvCode = CodeUtil.getCode();
 		}

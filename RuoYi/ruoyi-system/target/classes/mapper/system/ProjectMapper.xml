@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.ProjectMapper">
+
+    <resultMap type="Project" id="ProjectResult">
+        <result property="id"    column="id"    />
+        <result property="name"    column="name"    />
+        <result property="introduce"    column="introduce"    />
+        <result property="team"    column="team"    />
+        <result property="linkman"    column="linkman"    />
+        <result property="webLink"    column="web_link"    />
+        <result property="wechat"    column="wechat"    />
+        <result property="activityLink"    column="activity_link"    />
+        <result property="raise"    column="raise"    />
+        <result property="chat"    column="chat"    />
+        <result property="volunteer"    column="volunteer"    />
+        <result property="relay"    column="relay"    />
+        <result property="register"    column="register"    />
+        <result property="follow"    column="follow"    />
+        <result property="jointask"    column="jointask"    />
+        <result property="other"    column="other"    />
+        <result property="filed1"    column="filed1"    />
+        <result property="filed2"    column="filed2"    />
+        <result property="filed3"    column="filed3"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="ipAddress"    column="ip_address"    />
+        <result property="remark"    column="remark"    />
+        <result property="logoName"    column="logo_Name"    />
+        <result property="logoPath"    column="logo_Path"    />
+        <result property="bookName"    column="book_Name"    />
+        <result property="bookPath"    column="book_Path"    />
+        <result property="reportName"    column="report_Name"    />
+        <result property="reportPath"    column="report_Path"    />
+        <result property="bannerName1"    column="banner_Name1"    />
+        <result property="bannerPath1"    column="banner_Path1"    />
+        <result property="bannerName2"    column="banner_Name2"    />
+        <result property="bannerPath2"    column="banner_Path2"    />
+        <result property="bannerName3"    column="banner_Name3"    />
+        <result property="bannerPath3"    column="banner_Path3"    />
+    </resultMap>
+
+    <sql id="selectProjectVo">
+        select id, name, introduce, team, linkman, web_link, wechat, activity_link, raise, chat, volunteer, relay, register, follow, jointask, other, filed1, filed2, filed3, create_by, create_time, update_by, update_time, ip_address, remark,
+        logo_Name,logo_path,book_Name,book_Path,report_Name,report_Path,banner_Name1,banner_Path1,
+        banner_Name2,banner_Path2,banner_Name3,banner_Path3 from project
+    </sql>
+
+    <select id="selectProjectList" parameterType="Project" resultMap="ProjectResult">
+        <include refid="selectProjectVo"/>
+        <where>
+            <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
+            <if test="introduce != null  and introduce != ''"> and introduce like concat('%', #{introduce}, '%')</if>
+            <if test="team != null  and team != ''"> and team like concat('%', #{team}, '%')</if>
+            <if test="linkman != null  and linkman != ''"> and linkman like concat('%', #{linkman}, '%')</if>
+        </where>
+    </select>
+
+    <select id="selectProjectById" parameterType="String" resultMap="ProjectResult">
+        <include refid="selectProjectVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertProject" parameterType="Project">
+        insert into project
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null  and id != ''">id,</if>
+            <if test="name != null  and name != ''">name,</if>
+            <if test="introduce != null  and introduce != ''">introduce,</if>
+            <if test="team != null  and team != ''">team,</if>
+            <if test="linkman != null  and linkman != ''">linkman,</if>
+            <if test="webLink != null  and webLink != ''">web_link,</if>
+            <if test="wechat != null  and wechat != ''">wechat,</if>
+            <if test="activityLink != null  and activityLink != ''">activity_link,</if>
+            <if test="raise != null ">raise,</if>
+            <if test="chat != null ">chat,</if>
+            <if test="volunteer != null ">volunteer,</if>
+            <if test="relay != null  and relay != ''">relay,</if>
+            <if test="register != null  and register != ''">register,</if>
+            <if test="follow != null  and follow != ''">follow,</if>
+            <if test="jointask != null  and jointask != ''">jointask,</if>
+            <if test="other != null  and other != ''">other,</if>
+            <if test="filed1 != null  and filed1 != ''">filed1,</if>
+            <if test="filed2 != null  and filed2 != ''">filed2,</if>
+            <if test="filed3 != null  and filed3 != ''">filed3,</if>
+            <if test="createBy != null  and createBy != ''">create_by,</if>
+            <if test="createTime != null ">create_time,</if>
+            <if test="updateBy != null  and updateBy != ''">update_by,</if>
+            <if test="updateTime != null ">update_time,</if>
+            <if test="ipAddress != null  and ipAddress != ''">ip_address,</if>
+            <if test="remark != null  and remark != ''">remark,</if>
+            <if test="logoName != null  and logoName != ''">logo_Name,</if>
+            <if test="logoPath != null  and logoPath != ''">logo_Path,</if>
+            <if test="bookName != null  and bookName != ''">book_Name,</if>
+            <if test="bookPath != null  and bookPath != ''">book_Path,</if>
+            <if test="reportName != null  and reportName != ''">report_Name,</if>
+            <if test="reportPath != null  and reportPath != ''">report_Path,</if>
+            <if test="bannerName1 != null  and bannerName1 != ''">banner_Name1,</if>
+            <if test="bannerPath1 != null  and bannerPath1 != ''">banner_Path1,</if>
+            <if test="bannerName2 != null  and bannerName2 != ''">banner_Name2,</if>
+            <if test="bannerPath2 != null  and bannerPath2 != ''">banner_Path2,</if>
+            <if test="bannerName3 != null  and bannerName3 != ''">banner_Name3,</if>
+            <if test="bannerPath3 != null  and bannerPath3 != ''">banner_Path3,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null  and id != ''">#{id},</if>
+            <if test="name != null  and name != ''">#{name},</if>
+            <if test="introduce != null  and introduce != ''">#{introduce},</if>
+            <if test="team != null  and team != ''">#{team},</if>
+            <if test="linkman != null  and linkman != ''">#{linkman},</if>
+            <if test="webLink != null  and webLink != ''">#{webLink},</if>
+            <if test="wechat != null  and wechat != ''">#{wechat},</if>
+            <if test="activityLink != null  and activityLink != ''">#{activityLink},</if>
+            <if test="raise != null ">#{raise},</if>
+            <if test="chat != null ">#{chat},</if>
+            <if test="volunteer != null ">#{volunteer},</if>
+            <if test="relay != null  and relay != ''">#{relay},</if>
+            <if test="register != null  and register != ''">#{register},</if>
+            <if test="follow != null  and follow != ''">#{follow},</if>
+            <if test="jointask != null  and jointask != ''">#{jointask},</if>
+            <if test="other != null  and other != ''">#{other},</if>
+            <if test="filed1 != null  and filed1 != ''">#{filed1},</if>
+            <if test="filed2 != null  and filed2 != ''">#{filed2},</if>
+            <if test="filed3 != null  and filed3 != ''">#{filed3},</if>
+            <if test="createBy != null  and createBy != ''">#{createBy},</if>
+            <if test="createTime != null ">#{createTime},</if>
+            <if test="updateBy != null  and updateBy != ''">#{updateBy},</if>
+            <if test="updateTime != null ">#{updateTime},</if>
+            <if test="ipAddress != null  and ipAddress != ''">#{ipAddress},</if>
+            <if test="remark != null  and remark != ''">#{remark},</if>
+            <if test="logoName != null  and logoName != ''">#{logoName},</if>
+            <if test="logoPath != null  and logoPath != ''">#{logoPath},</if>
+            <if test="bookName != null  and bookName != ''">#{bookName},</if>
+            <if test="bookPath != null  and bookPath != ''">#{bookPath},</if>
+            <if test="reportName != null  and reportName != ''">#{reportName},</if>
+            <if test="reportPath != null  and reportPath != ''">#{reportPath},</if>
+            <if test="bannerName1 != null  and bannerName1 != ''">#{bannerName1},</if>
+            <if test="bannerPath1 != null  and bannerPath1 != ''">#{bannerPath1},</if>
+            <if test="bannerName2 != null  and bannerName2 != ''">#{bannerName2},</if>
+            <if test="bannerPath2 != null  and bannerPath2 != ''">#{bannerPath2},</if>
+            <if test="bannerName3 != null  and bannerName3 != ''">#{bannerName3},</if>
+            <if test="bannerPath3 != null  and bannerPath3 != ''">#{bannerPath3},</if>
+         </trim>
+    </insert>
+
+    <update id="updateProject" parameterType="Project">
+        update project
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="name != null  and name != ''">name = #{name},</if>
+            <if test="introduce != null  and introduce != ''">introduce = #{introduce},</if>
+            <if test="team != null  and team != ''">team = #{team},</if>
+            <if test="linkman != null  and linkman != ''">linkman = #{linkman},</if>
+            <if test="webLink != null  and webLink != ''">web_link = #{webLink},</if>
+            <if test="wechat != null  and wechat != ''">wechat = #{wechat},</if>
+            <if test="activityLink != null  and activityLink != ''">activity_link = #{activityLink},</if>
+            <if test="raise != null ">raise = #{raise},</if>
+            <if test="chat != null ">chat = #{chat},</if>
+            <if test="volunteer != null ">volunteer = #{volunteer},</if>
+            <if test="relay != null  and relay != ''">relay = #{relay},</if>
+            <if test="register != null  and register != ''">register = #{register},</if>
+            <if test="follow != null  and follow != ''">follow = #{follow},</if>
+            <if test="jointask != null  and jointask != ''">jointask = #{jointask},</if>
+            <if test="other != null  and other != ''">other = #{other},</if>
+            <if test="filed1 != null  and filed1 != ''">filed1 = #{filed1},</if>
+            <if test="filed2 != null  and filed2 != ''">filed2 = #{filed2},</if>
+            <if test="filed3 != null  and filed3 != ''">filed3 = #{filed3},</if>
+            <if test="createBy != null  and createBy != ''">create_by = #{createBy},</if>
+            <if test="createTime != null ">create_time = #{createTime},</if>
+            <if test="updateBy != null  and updateBy != ''">update_by = #{updateBy},</if>
+            <if test="updateTime != null ">update_time = #{updateTime},</if>
+            <if test="ipAddress != null  and ipAddress != ''">ip_address = #{ipAddress},</if>
+            <if test="remark != null  and remark != ''">remark = #{remark},</if>
+            <if test="logoName != null  and logoName != ''">logo_Name = #{logoName},</if>
+            <if test="logoPath != null  and logoPath != ''">logo_Path = #{logoPath},</if>
+            <if test="bookName != null  and bookName != ''">book_Name = #{bookName},</if>
+            <if test="bookPath != null  and bookPath != ''">book_path = #{bookPath},</if>
+            <if test="reportName != null  and reportName != ''">report_Name = #{reportName},</if>
+            <if test="reportPath != null  and reportPath != ''">report_path = #{reportPath},</if>
+            <if test="bannerName1 != null  and bannerName1 != ''">banner_Name1 = #{bannerName1},</if>
+            <if test="bannerPath1 != null  and bannerPath1 != ''">banner_Path1 = #{bannerPath1},</if>
+            <if test="bannerName2 != null  and bannerName2 != ''">banner_Name2 = #{bannerName2},</if>
+            <if test="bannerPath2 != null  and bannerPath2 != ''">banner_Path2 = #{bannerPath2},</if>
+            <if test="bannerName3 != null  and bannerName3 != ''">banner_Name3 = #{bannerName3},</if>
+            <if test="bannerPath3 != null  and bannerPath3 != ''">banner_Path3 = #{bannerPath3},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteProjectById" parameterType="String">
+        delete from project where id = #{id}
+    </delete>
+
+    <delete id="deleteProjectByIds" parameterType="String">
+        delete from project where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+</mapper>

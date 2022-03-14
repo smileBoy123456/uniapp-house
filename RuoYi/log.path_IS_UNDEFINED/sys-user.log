@@ -1,6 +1,1 @@
-19:17:45.857 [main] INFO  sys-user - [shutdownAsyncManager,56] - ====关闭后台任务任务线程池====
-20:02:14.117 [main] INFO  sys-user - [shutdownAsyncManager,56] - ====关闭后台任务任务线程池====
-20:10:42.462 [schedule-pool-1] INFO  sys-user - [run,108] - [127.0.0.1]内网IP[admin][Error][密码输入错误1次]
-20:10:45.567 [schedule-pool-3] INFO  sys-user - [run,108] - [127.0.0.1]内网IP[admin][Success][登录成功]
-20:16:52.517 [Thread-59] INFO  sys-user - [shutdownSpringSessionValidationScheduler,39] - ====关闭会话验证任务====
-20:16:52.518 [Thread-59] INFO  sys-user - [shutdownAsyncManager,56] - ====关闭后台任务任务线程池====
+22:56:04.310 [Thread-45] INFO  sys-user - [shutdownAsyncManager,56] - ====关闭后台任务任务线程池====

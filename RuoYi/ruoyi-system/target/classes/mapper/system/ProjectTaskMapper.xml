@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.ProjectTaskMapper">
+    
+    <resultMap type="ProjectTask" id="ProjectTaskResult">
+        <result property="id"    column="id"    />
+        <result property="userId"    column="user_id"    />
+        <result property="projectId"    column="project_id"    />
+        <result property="projectName"    column="project_name"    />
+        <result property="taskNo"    column="task_no"    />
+        <result property="relayName"    column="relay_Name"    />
+        <result property="relayPath"    column="relay_Path"    />
+        <result property="registerName"    column="register_name"    />
+        <result property="registerPath"    column="register_path"    />
+        <result property="followName"    column="follow_name"    />
+        <result property="followPath"    column="follow_path"    />
+        <result property="addGroup"    column="add_group"    />
+        <result property="addPath"    column="add_path"    />
+        <result property="otherName"    column="other_name"    />
+        <result property="otherPath"    column="other_path"    />
+        <result property="status"    column="status"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="ipAddress"    column="ip_address"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>
+
+    <sql id="selectProjectTaskVo">
+        select id, user_id, project_id, project_name, task_no, relay_Name, relay_Path, register_name, register_path, follow_name, follow_path, add_group, add_path, other_name, other_path, status, update_by, update_time, ip_address, create_by, create_time, remark from project_task
+    </sql>
+
+    <select id="selectProjectTaskList" parameterType="ProjectTask" resultMap="ProjectTaskResult">
+        <include refid="selectProjectTaskVo"/>
+        <where>  
+            <if test="projectName != null  and projectName != ''"> and project_name like concat('%', #{projectName}, '%')</if>
+            <if test="taskNo != null  and taskNo != ''"> and task_no = #{taskNo}</if>
+            <if test="status != null "> and status = #{status}</if>
+        </where>
+    </select>
+    
+    <select id="selectProjectTaskById" parameterType="Long" resultMap="ProjectTaskResult">
+        <include refid="selectProjectTaskVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertProjectTask" parameterType="ProjectTask" useGeneratedKeys="true" keyProperty="id">
+        insert into project_task
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userId != null ">user_id,</if>
+            <if test="projectId != null ">project_id,</if>
+            <if test="projectName != null  and projectName != ''">project_name,</if>
+            <if test="taskNo != null  and taskNo != ''">task_no,</if>
+            <if test="relayName != null  and relayName != ''">relay_Name,</if>
+            <if test="relayPath != null  and relayPath != ''">relay_Path,</if>
+            <if test="registerName != null  and registerName != ''">register_name,</if>
+            <if test="registerPath != null  and registerPath != ''">register_path,</if>
+            <if test="followName != null  and followName != ''">follow_name,</if>
+            <if test="followPath != null  and followPath != ''">follow_path,</if>
+            <if test="addGroup != null  and addGroup != ''">add_group,</if>
+            <if test="addPath != null  and addPath != ''">add_path,</if>
+            <if test="otherName != null  and otherName != ''">other_name,</if>
+            <if test="otherPath != null  and otherPath != ''">other_path,</if>
+            <if test="status != null ">status,</if>
+            <if test="updateBy != null  and updateBy != ''">update_by,</if>
+            <if test="updateTime != null ">update_time,</if>
+            <if test="ipAddress != null  and ipAddress != ''">ip_address,</if>
+            <if test="createBy != null  and createBy != ''">create_by,</if>
+            <if test="createTime != null ">create_time,</if>
+            <if test="remark != null  and remark != ''">remark,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userId != null ">#{userId},</if>
+            <if test="projectId != null ">#{projectId},</if>
+            <if test="projectName != null  and projectName != ''">#{projectName},</if>
+            <if test="taskNo != null  and taskNo != ''">#{taskNo},</if>
+            <if test="relayName != null  and relayName != ''">#{relayName},</if>
+            <if test="relayPath != null  and relayPath != ''">#{relayPath},</if>
+            <if test="registerName != null  and registerName != ''">#{registerName},</if>
+            <if test="registerPath != null  and registerPath != ''">#{registerPath},</if>
+            <if test="followName != null  and followName != ''">#{followName},</if>
+            <if test="followPath != null  and followPath != ''">#{followPath},</if>
+            <if test="addGroup != null  and addGroup != ''">#{addGroup},</if>
+            <if test="addPath != null  and addPath != ''">#{addPath},</if>
+            <if test="otherName != null  and otherName != ''">#{otherName},</if>
+            <if test="otherPath != null  and otherPath != ''">#{otherPath},</if>
+            <if test="status != null ">#{status},</if>
+            <if test="updateBy != null  and updateBy != ''">#{updateBy},</if>
+            <if test="updateTime != null ">#{updateTime},</if>
+            <if test="ipAddress != null  and ipAddress != ''">#{ipAddress},</if>
+            <if test="createBy != null  and createBy != ''">#{createBy},</if>
+            <if test="createTime != null ">#{createTime},</if>
+            <if test="remark != null  and remark != ''">#{remark},</if>
+         </trim>
+    </insert>
+
+    <update id="updateProjectTask" parameterType="ProjectTask">
+        update project_task
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="userId != null ">user_id = #{userId},</if>
+            <if test="projectId != null ">project_id = #{projectId},</if>
+            <if test="projectName != null  and projectName != ''">project_name = #{projectName},</if>
+            <if test="taskNo != null  and taskNo != ''">task_no = #{taskNo},</if>
+            <if test="relayName != null  and relayName != ''">relay_Name = #{relayName},</if>
+            <if test="relayPath != null  and relayPath != ''">relay_Path = #{relayPath},</if>
+            <if test="registerName != null  and registerName != ''">register_name = #{registerName},</if>
+            <if test="registerPath != null  and registerPath != ''">register_path = #{registerPath},</if>
+            <if test="followName != null  and followName != ''">follow_name = #{followName},</if>
+            <if test="followPath != null  and followPath != ''">follow_path = #{followPath},</if>
+            <if test="addGroup != null  and addGroup != ''">add_group = #{addGroup},</if>
+            <if test="addPath != null  and addPath != ''">add_path = #{addPath},</if>
+            <if test="otherName != null  and otherName != ''">other_name = #{otherName},</if>
+            <if test="otherPath != null  and otherPath != ''">other_path = #{otherPath},</if>
+            <if test="status != null ">status = #{status},</if>
+            <if test="updateBy != null  and updateBy != ''">update_by = #{updateBy},</if>
+            <if test="updateTime != null ">update_time = #{updateTime},</if>
+            <if test="ipAddress != null  and ipAddress != ''">ip_address = #{ipAddress},</if>
+            <if test="createBy != null  and createBy != ''">create_by = #{createBy},</if>
+            <if test="createTime != null ">create_time = #{createTime},</if>
+            <if test="remark != null  and remark != ''">remark = #{remark},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteProjectTaskById" parameterType="Long">
+        delete from project_task where id = #{id}
+    </delete>
+
+    <delete id="deleteProjectTaskByIds" parameterType="String">
+        delete from project_task where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    
+</mapper>
