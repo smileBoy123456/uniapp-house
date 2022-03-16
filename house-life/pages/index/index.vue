@@ -55,6 +55,13 @@
 		<u-loadmore bg-color="rgb(240, 240, 240)" :status="loadStatus" @loadmore="findHouseList"></u-loadmore>
 		<u-back-top :scroll-top="scrollTop" top="1000"></u-back-top>
 		<u-no-network></u-no-network>
+		<view class="buttom">
+			<view class="loginType">
+				<view class="wechat item">
+					<view class="icon"><u-icon size="60" name="server-man" color="#999" @click="server"></u-icon></view>
+				</view>
+			</view>
+		</view>
 	</view>
 </template>
 
@@ -239,6 +246,9 @@
 				}).then(code => {
 					this.uvCode = code
 				});
+			},
+			server(){
+				window.open ('https://sourcebyte.cn')
 			}
 		}
 	}
@@ -318,5 +328,24 @@
 	    font-size: 24rpx;
 	    color: $u-tips-color;
 	    margin-top: 3px;
+	}
+	
+	.buttom {
+		.loginType {
+			font-size: 14px;
+			position: fixed;
+			right: 30rpx;
+			bottom: 300rpx;
+			width: 60px;
+			height: 60px;
+			padding: 4px;
+			cursor: pointer;
+			background: #FFF;
+			text-align: center;
+			line-height: 60px;
+			border-radius: 100%;
+			-webkit-box-shadow: 0px 1px 20px 0px rgba(0,0,0,0.1),inset 0px -1px 0px 0px rgba(0,0,0,0.1);
+			box-shadow: 0px 1px 20px 0px rgba(0,0,0,0.1),inset 0px -1px 0px 0px rgba(0,0,0,0.1);
+		}
 	}
 </style>
