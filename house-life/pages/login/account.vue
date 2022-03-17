@@ -1,32 +1,21 @@
 <template>
-	<view>
-		<view class="loginForm">
-			<u-toast ref="uToast" />
-			<view>
-				<u-cell-group>
-					<u-field
-						v-model="username"
-						label="手机号"
-						placeholder="请填写手机号"
-						icon="account"
-						iconColor="#d5d5d5"
-					>
-					</u-field>
-					<u-field
-						v-model="password"
-						label="密码"
-						placeholder="请填写密码"
-						icon="lock"
-						iconColor="#d5d5d5"
-						password
-					>
-					</u-field>
-				</u-cell-group>
+	<view class="wrap">
+		<view class="content">
+			<view class="title">欢迎登录</view>
+			<input class="u-border-bottom" type="number" v-model="loginName" placeholder="请输入手机号" />
+			<view class="tips">未注册的手机号验证后自动创建账号</view>
+			<u-button @tap="submit" :style="[inputStyle]" class="getCaptcha">获取短信验证码</u-button>
+			<view class="alternative">
+				<view class="account" @click="accountLogin">密码登录</view>
+				<view class="issue" @click="problem">遇到问题</view>
 			</view>
 		</view>
-		<u-button class="u-m-20 loginBtn" type="primary" @tap="login">登录</u-button>
-		<view class="version">
-			版本号为：{{vuex_version}}
+		<view class="buttom">
+			<view class="loginType">
+				<view class="wechat item">
+					<view class="icon"><u-icon size="60" name="server-man" color="#999" @click="server"></u-icon></view>
+				</view>
+			</view>
 		</view>
 	</view>
 </template>
@@ -35,66 +24,116 @@
 export default {
 	data() {
 		return {
-			// username: '18758268181',
-			// password: '123456',
-			username: '',
-			password: '',
+			loginName: ''
+		}
+	},
+	computed: {
+		inputStyle() {
+			let style = {};
+			if(this.loginName && this.$u.test.mobile(this.loginName)) {
+				style.color = "#fff";
+				style.backgroundColor = this.$u.color['primary'];
+			}
+			return style;
 		}
 	},
 	methods: {
-		login() {
-			if(!this.$u.test.mobile(this.username)){
-				return this.$refs.uToast.show({
-					title: '手机号不正确',
-					type: 'warning',
+		submit() {
+			if(this.$u.test.mobile(this.loginName)) {
+				this.$u.route({
+					url: 'pages/login/code',
+					params: {
+						loginName: this.loginName
+					}
 				})
 			}
-			if(!this.password){
-				return this.$refs.uToast.show({
-					title: '密码不能为空',
-					type: 'warning',
-				})
-			}
-			// 登录json参数，不同于表单参数
-			let url = "/web/thirdLogin";
-			this.$u.post(url,{
-				loginName: this.username,
-				password: this.password
-			}).then(data => {
-				// 登录成功初始化token与用户信息
-				this.$u.vuex('vuex_token', data.jwtToken);
-				this.$u.vuex('vuex_user', data);
-				uni.switchTab({
-					url: '/pages/index/index'
-				})
-			});
 		},
+		accountLogin(){
+			this.$u.route({
+				url: 'pages/login/login'
+			})
+		},
+		problem(){
+			this.$u.route({
+				url: 'pages/login/problem'
+			})
+		},
+		server(){
+			window.open ('https://sourcebyte.cn')
+		}
 	}
 };
 </script>
 
 <style>
-	page{
+	page {
 		overflow: hidden;
+		background-color: #ffffff;
 	}
 </style>
 <style lang="scss" scoped>
-	.loginForm {
-		text-align: center;
-		margin: 20rpx 20rpx;
-	}
+.wrap {
+	font-size: 28rpx;
+	.content {
+		width: 600rpx;
+		margin: 80rpx auto 0;
 
-	.version {
-		position:fixed;
-		bottom:0;
-		width: 100%;
-		text-align: center;
-		padding: 20rpx;
-		color: #ccc;
+		.title {
+			text-align: left;
+			font-size: 60rpx;
+			font-weight: 500;
+			margin-bottom: 100rpx;
+		}
+		input {
+			text-align: left;
+			margin-bottom: 10rpx;
+			padding-bottom: 6rpx;
+		}
+		.tips {
+			color: $u-type-info;
+			margin-bottom: 60rpx;
+			margin-top: 8rpx;
+		}
+		.getCaptcha {
+			background-color: rgba(0, 0, 0,.1);
+			color: $u-tips-color;
+			border: none;
+			font-size: 30rpx;
+			padding: 12rpx 0;
+			
+			&::after {
+				border: none;
+			}
+		}
+		.alternative {
+			color: $u-tips-color;
+			display: flex;
+			justify-content: space-between;
+			margin-top: 30rpx;
+			.account {
+				&:active{
+					background-color: #ededed;
+				}
+			}
+		}
 	}
-	
-	.loginBtn {
-		font-size: 30rpx;
-		padding: 12rpx 0;
+	.buttom {
+		.loginType {
+			font-size: 14px;
+			position: fixed;
+			right: 50rpx;
+			bottom: 50rpx;
+			width: 60px;
+			height: 60px;
+			padding: 4px;
+			cursor: pointer;
+			background: #FFF;
+			text-align: center;
+			line-height: 60px;
+			border-radius: 100%;
+			-webkit-box-shadow: 0px 1px 20px 0px rgba(0,0,0,0.1),inset 0px -1px 0px 0px rgba(0,0,0,0.1);
+			box-shadow: 0px 1px 20px 0px rgba(0,0,0,0.1),inset 0px -1px 0px 0px rgba(0,0,0,0.1);
+		}
 	}
+}
 </style>

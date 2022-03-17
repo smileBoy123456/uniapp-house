@@ -1,138 +1,214 @@
+<!-- 蓝色登录页面2 -->
 <template>
-	<view class="wrap">
-		<view class="content">
-			<view class="title">欢迎登录</view>
-			<input class="u-border-bottom" type="number" v-model="loginName" placeholder="请输入手机号" />
-			<view class="tips">未注册的手机号验证后自动创建账号</view>
-			<u-button @tap="submit" :style="[inputStyle]" class="getCaptcha">获取短信验证码</u-button>
-			<view class="alternative">
-				<view class="account" @click="accountLogin">密码登录</view>
-				<view class="issue" @click="problem">遇到问题</view>
+	<view>
+		<u-toast ref="uToast" />
+		<view class="img-a">
+			<view class="t-b" @click="goLogin3()">
+				您好，
+				<br />
+				欢迎使用 开源字节
 			</view>
 		</view>
-		<view class="buttom">
-			<view class="loginType">
-				<view class="wechat item">
-					<view class="icon"><u-icon size="60" name="server-man" color="#999" @click="server"></u-icon></view>
-				</view>
+		<view class="login-view">
+			<view class="t-login">
+				<form class="cl">
+					<view class="t-a">
+						<text class="txt">手机号</text>
+						<input type="number" name="phone" placeholder="请输入您的手机号" maxlength="11" v-model="username" />
+					</view>
+					<view class="t-a">
+						<text class="txt">密码</text>
+						<input type="password" name="code" maxlength="18" placeholder="请输入您的密码" v-model="password" />
+					</view>
+					<button @tap="login()">登 录</button>
+					<view class="reg" @tap="reg()">短信登录</view>
+				</form>
 			</view>
 		</view>
 	</view>
 </template>
-
 <script>
 export default {
 	data() {
 		return {
-			loginName: ''
-		}
-	},
-	computed: {
-		inputStyle() {
-			let style = {};
-			if(this.loginName && this.$u.test.mobile(this.loginName)) {
-				style.color = "#fff";
-				style.backgroundColor = this.$u.color['primary'];
-			}
-			return style;
+			username: '',
+			password: '',
 		}
 	},
 	methods: {
-		submit() {
-			if(this.$u.test.mobile(this.loginName)) {
-				this.$u.route({
-					url: 'pages/login/code',
-					params: {
-						loginName: this.loginName
-					}
+		login() {
+			if(!this.$u.test.mobile(this.username)){
+				return this.$refs.uToast.show({
+					title: '手机号不正确',
+					type: 'warning',
 				})
 			}
+			if(!this.password){
+				return this.$refs.uToast.show({
+					title: '密码不能为空',
+					type: 'warning',
+				})
+			}
+			// 登录json参数，不同于表单参数
+			let url = "/web/thirdLogin";
+			this.$u.post(url,{
+				loginName: this.username,
+				password: this.password
+			}).then(data => {
+				// 登录成功初始化token与用户信息
+				this.$u.vuex('vuex_token', data.jwtToken);
+				this.$u.vuex('vuex_user', data);
+				uni.switchTab({
+					url: '/pages/index/index'
+				})
+			});
 		},
-		accountLogin(){
+		reg(){
 			this.$u.route({
 				url: 'pages/login/account'
 			})
-		},
-		problem(){
-			this.$u.route({
-				url: 'pages/login/problem'
-			})
-		},
-		server(){
-			window.open ('https://sourcebyte.cn')
 		}
 	}
 };
 </script>
 
-<style>
-	page {
-		overflow: hidden;
-	}
-</style>
-<style lang="scss" scoped>
-.wrap {
-	font-size: 28rpx;
-	.content {
-		width: 600rpx;
-		margin: 80rpx auto 0;
 
-		.title {
-			text-align: left;
-			font-size: 60rpx;
-			font-weight: 500;
-			margin-bottom: 100rpx;
-		}
-		input {
-			text-align: left;
-			margin-bottom: 10rpx;
-			padding-bottom: 6rpx;
-		}
-		.tips {
-			color: $u-type-info;
-			margin-bottom: 60rpx;
-			margin-top: 8rpx;
-		}
-		.getCaptcha {
-			background-color: rgba(0, 0, 0,.1);
-			color: $u-tips-color;
-			border: none;
-			font-size: 30rpx;
-			padding: 12rpx 0;
-			
-			&::after {
-				border: none;
-			}
-		}
-		.alternative {
-			color: $u-tips-color;
-			display: flex;
-			justify-content: space-between;
-			margin-top: 30rpx;
-			.account {
-				&:active{
-					background-color: #ededed;
-				}
-			}
-		}
-	}
-	.buttom {
-		.loginType {
-			font-size: 14px;
-			position: fixed;
-			right: 50rpx;
-			bottom: 50rpx;
-			width: 60px;
-			height: 60px;
-			padding: 4px;
-			cursor: pointer;
-			background: #FFF;
-			text-align: center;
-			line-height: 60px;
-			border-radius: 100%;
-			-webkit-box-shadow: 0px 1px 20px 0px rgba(0,0,0,0.1),inset 0px -1px 0px 0px rgba(0,0,0,0.1);
-			box-shadow: 0px 1px 20px 0px rgba(0,0,0,0.1),inset 0px -1px 0px 0px rgba(0,0,0,0.1);
-		}
-	}
+<style>
+page {
+  background-color: #ffffff;
+}
+</style>
+<style>
+.txt {
+	font-size: 32rpx;
+	font-weight: bold;
+	color: #333333;
+}
+.img-a {
+	width: 100%;
+	height: 450rpx;
+	background-image: url(https://zhoukaiwen.com/img/loginImg/head.png);
+	background-size: 100%;
+}
+.reg {
+	font-size: 28rpx;
+	color: #fff;
+	height: 90rpx;
+	line-height: 90rpx;
+	border-radius: 50rpx;
+	font-weight: bold;
+	background: #f5f6fa;
+	color: #000000;
+	text-align: center;
+	margin-top: 30rpx;
+}
+
+.login-view {
+	width: 100%;
+	position: relative;
+	margin-top: -120rpx;
+	background-color: #ffffff;
+	border-radius: 8% 8% 0% 0;
+}
+
+.t-login {
+	width: 600rpx;
+	margin: 0 auto;
+	font-size: 28rpx;
+	padding-top: 80rpx;
+}
+
+.t-login button {
+	font-size: 28rpx;
+	background: #2796f2;
+	color: #fff;
+	height: 90rpx;
+	line-height: 90rpx;
+	border-radius: 50rpx;
+	font-weight: bold;
+}
+
+.t-login input {
+	height: 90rpx;
+	line-height: 90rpx;
+	margin-bottom: 50rpx;
+	border-bottom: 1px solid #e9e9e9;
+	font-size: 28rpx;
+}
+
+.t-login .t-a {
+	position: relative;
+}
+
+.t-b {
+	text-align: left;
+	font-size: 42rpx;
+	color: #ffffff;
+	padding: 130rpx 0 0 70rpx;
+	font-weight: bold;
+	line-height: 70rpx;
+}
+
+.t-login .t-c {
+	position: absolute;
+	right: 22rpx;
+	top: 22rpx;
+	background: #5677fc;
+	color: #fff;
+	font-size: 24rpx;
+	border-radius: 50rpx;
+	height: 50rpx;
+	line-height: 50rpx;
+	padding: 0 25rpx;
+}
+
+.t-login .t-d {
+	text-align: center;
+	color: #999;
+	margin: 80rpx 0;
+}
+
+.t-login .t-e {
+	text-align: center;
+	width: 250rpx;
+	margin: 80rpx auto 0;
+}
+
+.t-login .t-g {
+	float: left;
+	width: 50%;
+}
+
+.t-login .t-e image {
+	width: 50rpx;
+	height: 50rpx;
+}
+
+.t-login .t-f {
+	text-align: center;
+	margin: 150rpx 0 0 0;
+	color: #666;
+}
+
+.t-login .t-f text {
+	margin-left: 20rpx;
+	color: #aaaaaa;
+	font-size: 27rpx;
+}
+
+.t-login .uni-input-placeholder {
+	color: #aeaeae;
+}
+
+.cl {
+	zoom: 1;
+}
+
+.cl:after {
+	clear: both;
+	display: block;
+	visibility: hidden;
+	height: 0;
+	content: '\20';
 }
 </style>

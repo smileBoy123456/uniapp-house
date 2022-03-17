@@ -6,15 +6,10 @@
 			</u-collapse-item>
 		</u-collapse>
 		<view class="u-m-t-20">
-			<u-button class="u-m-20" type="default" @click="download" plain>
-				<u-icon name="download" color="#969799" size="38"></u-icon>
-				下载APP
+			<u-button class="u-m-20" type="default" @click="server" plain>
+				<u-icon name="level" color="#969799" size="38"></u-icon>
+				前往官网
 			</u-button>
-			<view class="appUrl" v-if="appUrl">
-				<text selectable="true">
-					下载链接：{{url}}
-				</text>
-			</view>
 		</view>
 	</view>
 </template>
@@ -24,7 +19,7 @@ export default {
 	data() {
 		return {
 			appUrl: false,
-			url: "http://8.136.213.245/profile/apk/yixin.apk",
+			url: "https://sourcebyte.cn",
 			itemList: [
 				{
 					head: "初始密码是什么？",
@@ -50,6 +45,9 @@ export default {
 		}
 	},
 	methods: {
+		server(){
+			window.open(this.url)
+		},
 		download(){
 			this.DownLoadAndroid();
 		},

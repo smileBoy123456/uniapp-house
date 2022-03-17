@@ -47,6 +47,7 @@
 		    "path" : "pages/login/account",
 		    "style" :                                                                                    
 		    {
+				"navigationStyle": "custom" ,// 隐藏系统导航栏
 		        "navigationBarTitleText": "密码登录",
 		        "enablePullDownRefresh": false
 		    }
@@ -95,6 +96,14 @@
             }
             
         }
+		,{
+		    "path" : "pages/location/location",
+		    "style": {
+		    	// "navigationStyle": "custom" ,// 隐藏系统导航栏
+		    	"navigationBarTitleText": "选择地址"
+		    }
+		    
+		}
         ,{
             "path" : "pages/notice/notice",
             "style" :                                                                                    
@@ -150,8 +159,8 @@
                 "navigationBarTitleText": "预增房源",
                 "enablePullDownRefresh": false
             }
-            
         }
+		
 		
     ],
 	"globalStyle": {

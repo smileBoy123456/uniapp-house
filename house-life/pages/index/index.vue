@@ -2,7 +2,7 @@
 	<view class="u-p-l-10 u-p-r-10">
 		<u-navbar :is-back="false">
 			<view style="display: flex;justify-content: center;align-items: center;">
-				<view class="u-p-30" @click="code">
+				<view class="u-p-30"  @click="location">
 					杭州
 					<u-icon name="arrow-down-fill" class="u-p-l-20" color="#515356"></u-icon>
 				</view>
@@ -132,6 +132,11 @@
 			uni.stopPullDownRefresh();
 		},
 		methods: {
+			location(){
+				  this.$u.route({
+					url: 'pages/location/location',
+				  })
+			},
 			search(){
 				this.$u.route({
 					url: 'pages/search/search',
