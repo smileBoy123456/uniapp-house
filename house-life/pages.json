@@ -30,7 +30,7 @@
             "style" :                                                                                    
             {
 				"navigationStyle": "custom" ,// 隐藏系统导航栏
-                "navigationBarTitleText": "登录",
+                "navigationBarTitleText": "密码登录",
                 "enablePullDownRefresh": false
             }
         }
@@ -39,7 +39,7 @@
 		    "style" :                                                                                    
 		    {
 				// "navigationStyle": "custom" ,// 隐藏系统导航栏
-		        "navigationBarTitleText": "验证码",
+		        "navigationBarTitleText": "获取验证码",
 		        "enablePullDownRefresh": false
 		    }
 		}
@@ -48,7 +48,7 @@
 		    "style" :                                                                                    
 		    {
 				"navigationStyle": "custom" ,// 隐藏系统导航栏
-		        "navigationBarTitleText": "密码登录",
+		        "navigationBarTitleText": "短信登录",
 		        "enablePullDownRefresh": false
 		    }
 		}
