@@ -115,7 +115,7 @@
         "template" : "template.h5.html",
         "router" : {
             "mode" : "hash",
-            "base" : "/h5/"
+            "base" : "/house/"
         },
         "title" : "一心房产",
         "domain" : "8.136.213.245"

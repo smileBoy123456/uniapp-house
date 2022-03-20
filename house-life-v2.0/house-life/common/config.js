@@ -1,6 +1,6 @@
 // 全局配置文件
 let baseUrl = 'http://192.168.0.106:8088';
-// let baseUrl = 'http://8.136.213.245:8090';
+// let baseUrl = 'https://sourcebyte.cn';
 // 版本号 用于更新
 let version = 1;
 // vuex_version版本号 用于显示

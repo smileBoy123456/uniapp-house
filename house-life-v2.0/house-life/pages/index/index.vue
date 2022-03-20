@@ -67,8 +67,6 @@
 
 <script>
 	
-	// import appUpdate from "../../common/appUpdate.js"
-	
 	export default {
 		data() {
 			return {
@@ -90,7 +88,7 @@
 				navList:[
 				   {name:"整租",src:"/static/img/index/cover/index_cover1.png",type:"1"},
 				   {name:"合租",src:"/static/img/index/cover/index_cover2.png",type:"1"},
-				   {name:"近地铁",src:"/static/img/index/cover/index_cover3.png",type:"1"},
+				   {name:"搬家",src:"/static/img/index/cover/index_cover3.png",type:"1"},
 				   {name:"发布房源",src:"/static/img/index/cover/index_cover4.png",type:"2"}
 				],
 				loadStatus: 'loadmore',
