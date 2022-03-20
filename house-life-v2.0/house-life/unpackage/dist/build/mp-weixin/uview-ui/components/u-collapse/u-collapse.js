@@ -1,0 +1,10 @@
+(global["webpackJsonp"]=global["webpackJsonp"]||[]).push([["uview-ui/components/u-collapse/u-collapse"],{"2ede":function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0;var u={name:"u-collapse",props:{accordion:{type:Boolean,default:!0},headStyle:{type:Object,default:function(){return{}}},bodyStyle:{type:Object,default:function(){return{}}},itemStyle:{type:Object,default:function(){return{}}},arrow:{type:Boolean,default:!0},arrowColor:{type:String,default:"#909399"},hoverClass:{type:String,default:"u-hover-class"}},created:function(){this.childrens=[]},data:function(){return{}},methods:{init:function(){this.childrens.forEach((function(t,e){t.init()}))},onChange:function(){var t=[];this.childrens.forEach((function(e,n){e.isShow&&t.push(e.nameSync)})),this.accordion&&(t=t.join("")),this.$emit("change",t)}}};e.default=u},"2f98":function(t,e,n){"use strict";n.r(e);var u=n("35c4"),o=n("821f");for(var r in o)"default"!==r&&function(t){n.d(e,t,(function(){return o[t]}))}(r);n("e7f4");var c,a=n("f0c5"),i=Object(a["a"])(o["default"],u["b"],u["c"],!1,null,"52215176",null,!1,u["a"],c);e["default"]=i.exports},"35c4":function(t,e,n){"use strict";var u;n.d(e,"b",(function(){return o})),n.d(e,"c",(function(){return r})),n.d(e,"a",(function(){return u}));var o=function(){var t=this,e=t.$createElement;t._self._c},r=[]},"821f":function(t,e,n){"use strict";n.r(e);var u=n("2ede"),o=n.n(u);for(var r in u)"default"!==r&&function(t){n.d(e,t,(function(){return u[t]}))}(r);e["default"]=o.a},"94b0":function(t,e,n){},e7f4:function(t,e,n){"use strict";var u=n("94b0"),o=n.n(u);o.a}}]);
+;(global["webpackJsonp"] = global["webpackJsonp"] || []).push([
+    'uview-ui/components/u-collapse/u-collapse-create-component',
+    {
+        'uview-ui/components/u-collapse/u-collapse-create-component':(function(module, exports, __webpack_require__){
+            __webpack_require__('543d')['createComponent'](__webpack_require__("2f98"))
+        })
+    },
+    [['uview-ui/components/u-collapse/u-collapse-create-component']]
+]);

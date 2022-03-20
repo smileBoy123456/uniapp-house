@@ -1,0 +1,28 @@
+@charset "UTF-8";
+/**
+ * 下方引入的为uView UI的集成样式文件，为scss预处理器，其中包含了一些"u-"开头的自定义变量
+ * uView自定义的css类名和scss变量，均以"u-"开头，不会造成冲突，请放心使用 
+ */
+.area-box {
+  width: 100%;
+  overflow: hidden;
+  height: 800rpx;
+}
+.area-box > view {
+  width: 150%;
+  -webkit-transition: -webkit-transform 0.3s ease-in-out 0s;
+  transition: -webkit-transform 0.3s ease-in-out 0s;
+  transition: transform 0.3s ease-in-out 0s;
+  transition: transform 0.3s ease-in-out 0s, -webkit-transform 0.3s ease-in-out 0s;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+.area-box > view.change {
+  -webkit-transform: translateX(-33.33333%);
+          transform: translateX(-33.33333%);
+}
+.area-box .area-item {
+  width: 33.3333333%;
+  height: 800rpx;
+}
+

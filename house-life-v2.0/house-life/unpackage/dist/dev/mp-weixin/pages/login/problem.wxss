@@ -1,0 +1,8 @@
+
+page {
+	background: #fff;
+}
+.appUrl{
+	padding: 20rpx;
+}
+

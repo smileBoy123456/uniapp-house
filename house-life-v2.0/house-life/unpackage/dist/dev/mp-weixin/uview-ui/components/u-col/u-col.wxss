@@ -1,0 +1,48 @@
+@charset "UTF-8";
+/**
+ * 下方引入的为uView UI的集成样式文件，为scss预处理器，其中包含了一些"u-"开头的自定义变量
+ * uView自定义的css类名和scss变量，均以"u-"开头，不会造成冲突，请放心使用 
+ */
+.u-col {
+  float: left;
+}
+.u-col-0 {
+  width: 0;
+}
+.u-col-1 {
+  width: calc(100%/12);
+}
+.u-col-2 {
+  width: calc(100%/12 * 2);
+}
+.u-col-3 {
+  width: calc(100%/12 * 3);
+}
+.u-col-4 {
+  width: calc(100%/12 * 4);
+}
+.u-col-5 {
+  width: calc(100%/12 * 5);
+}
+.u-col-6 {
+  width: calc(100%/12 * 6);
+}
+.u-col-7 {
+  width: calc(100%/12 * 7);
+}
+.u-col-8 {
+  width: calc(100%/12 * 8);
+}
+.u-col-9 {
+  width: calc(100%/12 * 9);
+}
+.u-col-10 {
+  width: calc(100%/12 * 10);
+}
+.u-col-11 {
+  width: calc(100%/12 * 11);
+}
+.u-col-12 {
+  width: calc(100%/12 * 12);
+}
+

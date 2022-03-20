@@ -1,0 +1,71 @@
+@charset "UTF-8";
+/**
+ * 下方引入的为uView UI的集成样式文件，为scss预处理器，其中包含了一些"u-"开头的自定义变量
+ * uView自定义的css类名和scss变量，均以"u-"开头，不会造成冲突，请放心使用 
+ */
+.waterfall.data-v-25268f84 {
+  padding-top: 85rpx;
+}
+.nomore.data-v-25268f84 {
+  background-color: #f3f4f6;
+}
+.search.data-v-25268f84 {
+  width: 54px;
+  height: 44px;
+}
+.search.data-v-25268f84:active {
+  background-color: #f3f4f6;
+}
+.rowClass.data-v-25268f84 {
+  border-radius: 8px;
+  background-color: white;
+  margin-top: 10rpx;
+}
+.hoverClass.data-v-25268f84 {
+  background-color: #E4E7ED;
+}
+.tabName.data-v-25268f84 {
+  font-size: 28rpx;
+  color: #303133;
+}
+.demo-warter.data-v-25268f84 {
+  border-radius: 8px;
+  margin-top: 3px;
+  background-color: #ffffff;
+  padding: 3px;
+  position: relative;
+}
+.u-close.data-v-25268f84 {
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+}
+.item-cover.data-v-25268f84 {
+  font-size: 55rpx;
+  color: #ff9900;
+}
+.item-title.data-v-25268f84 {
+  font-size: 28rpx;
+  color: #303133;
+  font-weight: bold;
+  padding-top: 5rpx;
+  padding-left: 10rpx;
+}
+.item-price.data-v-25268f84 {
+  font-weight: normal;
+  font-size: 32rpx;
+  color: #ff9900;
+}
+.item-desc.data-v-25268f84 {
+  font-weight: normal;
+  font-size: 26rpx;
+  color: #909399;
+  padding-bottom: 5rpx;
+  padding-left: 10rpx;
+}
+.item-tag.data-v-25268f84 {
+  font-size: 24rpx;
+  color: #909399;
+  margin-top: 3px;
+}
+

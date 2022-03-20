@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "常见问题",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "u-collapse": "/uview-ui/components/u-collapse/u-collapse",
+    "u-collapse-item": "/uview-ui/components/u-collapse-item/u-collapse-item",
+    "u-button": "/uview-ui/components/u-button/u-button",
+    "u-icon": "/uview-ui/components/u-icon/u-icon"
+  }
+}

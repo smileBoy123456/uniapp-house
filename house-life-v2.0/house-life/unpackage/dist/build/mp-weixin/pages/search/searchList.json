@@ -1,0 +1,15 @@
+{
+  "navigationBarTitleText": "房源列表",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "searchList-u-waterfall-left": "/pages/search/searchList-u-waterfall-left",
+    "searchList-u-waterfall-right": "/pages/search/searchList-u-waterfall-right",
+    "u-sticky": "/uview-ui/components/u-sticky/u-sticky",
+    "u-waterfall": "/uview-ui/components/u-waterfall/u-waterfall",
+    "u-lazy-load": "/uview-ui/components/u-lazy-load/u-lazy-load",
+    "u-loadmore": "/uview-ui/components/u-loadmore/u-loadmore",
+    "u-back-top": "/uview-ui/components/u-back-top/u-back-top",
+    "u-no-network": "/uview-ui/components/u-no-network/u-no-network",
+    "filter-dropdown": "/components/zy/filterDropdown"
+  }
+}

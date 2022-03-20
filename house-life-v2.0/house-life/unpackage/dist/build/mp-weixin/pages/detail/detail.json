@@ -1,0 +1,19 @@
+{
+  "navigationStyle": "custom",
+  "navigationBarTitleText": "房源详情",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "u-swiper": "/uview-ui/components/u-swiper/u-swiper",
+    "u-cell-group": "/uview-ui/components/u-cell-group/u-cell-group",
+    "u-cell-item": "/uview-ui/components/u-cell-item/u-cell-item",
+    "u-tag": "/uview-ui/components/u-tag/u-tag",
+    "u-row": "/uview-ui/components/u-row/u-row",
+    "u-col": "/uview-ui/components/u-col/u-col",
+    "u-gap": "/uview-ui/components/u-gap/u-gap",
+    "u-card": "/uview-ui/components/u-card/u-card",
+    "u-icon": "/uview-ui/components/u-icon/u-icon",
+    "u-avatar": "/uview-ui/components/u-avatar/u-avatar",
+    "u-button": "/uview-ui/components/u-button/u-button",
+    "u-divider": "/uview-ui/components/u-divider/u-divider"
+  }
+}

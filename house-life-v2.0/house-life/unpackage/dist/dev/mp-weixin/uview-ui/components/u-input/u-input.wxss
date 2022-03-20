@@ -1,0 +1,58 @@
+@charset "UTF-8";
+/**
+ * 下方引入的为uView UI的集成样式文件，为scss预处理器，其中包含了一些"u-"开头的自定义变量
+ * uView自定义的css类名和scss变量，均以"u-"开头，不会造成冲突，请放心使用 
+ */
+.u-input.data-v-460c1d26 {
+  position: relative;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+          flex-direction: row;
+}
+.u-input__input.data-v-460c1d26 {
+  font-size: 28rpx;
+  color: #303133;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+}
+.u-input__textarea.data-v-460c1d26 {
+  width: auto;
+  font-size: 28rpx;
+  color: #303133;
+  padding: 10rpx 0;
+  line-height: normal;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+}
+.u-input--border.data-v-460c1d26 {
+  border-radius: 6rpx;
+  border-radius: 4px;
+  border: 1px solid #dcdfe6;
+}
+.u-input--error.data-v-460c1d26 {
+  border-color: #fa3534 !important;
+}
+.u-input__right-icon__item.data-v-460c1d26 {
+  margin-left: 10rpx;
+}
+.u-input__right-icon--select.data-v-460c1d26 {
+  -webkit-transition: -webkit-transform .4s;
+  transition: -webkit-transform .4s;
+  transition: transform .4s;
+  transition: transform .4s, -webkit-transform .4s;
+}
+.u-input__right-icon--select--reverse.data-v-460c1d26 {
+  -webkit-transform: rotate(-180deg);
+          transform: rotate(-180deg);
+}
+

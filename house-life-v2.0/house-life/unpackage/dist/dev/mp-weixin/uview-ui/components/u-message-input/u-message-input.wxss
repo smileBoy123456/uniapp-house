@@ -1,0 +1,157 @@
+@charset "UTF-8";
+/**
+ * 下方引入的为uView UI的集成样式文件，为scss预处理器，其中包含了一些"u-"开头的自定义变量
+ * uView自定义的css类名和scss变量，均以"u-"开头，不会造成冲突，请放心使用 
+ */
+@-webkit-keyframes breathe-data-v-0e1e7f9a {
+0% {
+    opacity: 0.3;
+}
+50% {
+    opacity: 1;
+}
+100% {
+    opacity: 0.3;
+}
+}
+@keyframes breathe-data-v-0e1e7f9a {
+0% {
+    opacity: 0.3;
+}
+50% {
+    opacity: 1;
+}
+100% {
+    opacity: 0.3;
+}
+}
+.u-char-box.data-v-0e1e7f9a {
+  text-align: center;
+}
+.u-char-flex.data-v-0e1e7f9a {
+
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+          flex-direction: row;
+
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-flex-wrap: wrap;
+          flex-wrap: wrap;
+  position: relative;
+}
+.u-input.data-v-0e1e7f9a {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  text-align: left;
+  z-index: 9;
+  opacity: 0;
+  background: none;
+}
+.u-char-item.data-v-0e1e7f9a {
+  position: relative;
+  width: 90rpx;
+  height: 90rpx;
+  margin: 10rpx 10rpx;
+  font-size: 60rpx;
+  font-weight: bold;
+  color: #303133;
+  line-height: 90rpx;
+
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+          flex-direction: row;
+
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.u-middle-line.data-v-0e1e7f9a {
+  border: none;
+}
+.u-box.data-v-0e1e7f9a {
+  box-sizing: border-box;
+  border: 2rpx solid #cccccc;
+  border-radius: 6rpx;
+}
+.u-box-active.data-v-0e1e7f9a {
+  overflow: hidden;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  -webkit-animation-duration: 1500ms;
+          animation-duration: 1500ms;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+  border: 2rpx solid #2979ff;
+}
+.u-middle-line-active.data-v-0e1e7f9a {
+  background: #2979ff;
+}
+.u-breathe.data-v-0e1e7f9a {
+  -webkit-animation: breathe-data-v-0e1e7f9a 2s infinite ease;
+          animation: breathe-data-v-0e1e7f9a 2s infinite ease;
+}
+.u-placeholder-line.data-v-0e1e7f9a {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 2rpx;
+  height: 40rpx;
+  background: #333333;
+  -webkit-animation: twinkling 1.5s infinite ease;
+          animation: twinkling 1.5s infinite ease;
+}
+.u-animation-breathe.data-v-0e1e7f9a {
+  -webkit-animation-name: breathe-data-v-0e1e7f9a;
+          animation-name: breathe-data-v-0e1e7f9a;
+}
+.u-dot.data-v-0e1e7f9a {
+  font-size: 34rpx;
+  line-height: 34rpx;
+}
+.u-middle-line.data-v-0e1e7f9a {
+  height: 4px;
+  background: #000000;
+  width: 80%;
+  position: absolute;
+  border-radius: 2px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+.u-buttom-line-active.data-v-0e1e7f9a {
+  background: #2979ff;
+}
+.u-bottom-line.data-v-0e1e7f9a {
+  height: 4px;
+  background: #000000;
+  width: 80%;
+  position: absolute;
+  border-radius: 2px;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%);
+}
+

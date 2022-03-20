@@ -1,0 +1,66 @@
+@charset "UTF-8";
+/**
+ * 下方引入的为uView UI的集成样式文件，为scss预处理器，其中包含了一些"u-"开头的自定义变量
+ * uView自定义的css类名和scss变量，均以"u-"开头，不会造成冲突，请放心使用 
+ */
+.u-progress.data-v-0fa21744 {
+  overflow: hidden;
+  height: 15px;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  width: 100%;
+  border-radius: 100rpx;
+}
+.u-active.data-v-0fa21744 {
+  width: 0;
+  height: 100%;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+          flex-direction: row;
+
+  justify-items: flex-end;
+  -webkit-justify-content: space-around;
+          justify-content: space-around;
+  font-size: 20rpx;
+  color: #ffffff;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+.u-striped.data-v-0fa21744 {
+  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-size: 39px 39px;
+}
+.u-striped-active.data-v-0fa21744 {
+  -webkit-animation: progress-stripes-data-v-0fa21744 2s linear infinite;
+          animation: progress-stripes-data-v-0fa21744 2s linear infinite;
+}
+@-webkit-keyframes progress-stripes-data-v-0fa21744 {
+0% {
+    background-position: 0 0;
+}
+100% {
+    background-position: 39px 0;
+}
+}
+@keyframes progress-stripes-data-v-0fa21744 {
+0% {
+    background-position: 0 0;
+}
+100% {
+    background-position: 39px 0;
+}
+}
+

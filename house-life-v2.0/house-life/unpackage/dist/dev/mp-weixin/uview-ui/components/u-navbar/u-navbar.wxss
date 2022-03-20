@@ -1,0 +1,138 @@
+@charset "UTF-8";
+/**
+ * 下方引入的为uView UI的集成样式文件，为scss预处理器，其中包含了一些"u-"开头的自定义变量
+ * uView自定义的css类名和scss变量，均以"u-"开头，不会造成冲突，请放心使用 
+ */
+.u-navbar.data-v-1194bf80 {
+  width: 100%;
+}
+.u-navbar-fixed.data-v-1194bf80 {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 991;
+}
+.u-status-bar.data-v-1194bf80 {
+  width: 100%;
+}
+.u-navbar-inner.data-v-1194bf80 {
+
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+          flex-direction: row;
+
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  position: relative;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.u-back-wrap.data-v-1194bf80 {
+
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+          flex-direction: row;
+
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+          flex-grow: 0;
+  padding: 14rpx 14rpx 14rpx 24rpx;
+}
+.u-back-text.data-v-1194bf80 {
+  padding-left: 4rpx;
+  font-size: 30rpx;
+}
+.u-navbar-content-title.data-v-1194bf80 {
+
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+          flex-direction: row;
+
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 60rpx;
+  text-align: center;
+  -webkit-flex-shrink: 0;
+          flex-shrink: 0;
+}
+.u-navbar-centent-slot.data-v-1194bf80 {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+}
+.u-title.data-v-1194bf80 {
+  line-height: 60rpx;
+  font-size: 32rpx;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+}
+.u-navbar-right.data-v-1194bf80 {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+          flex-direction: row;
+
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+          justify-content: flex-end;
+}
+.u-slot-content.data-v-1194bf80 {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+          flex-direction: row;
+
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+

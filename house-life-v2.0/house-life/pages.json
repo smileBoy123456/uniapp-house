@@ -1,0 +1,199 @@
+{
+	"easycom": {
+		"^u-(.*)": "@/uview-ui/components/u-$1/u-$1.vue"
+	},
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationStyle": "custom" ,// 隐藏系统导航栏
+				"navigationBarTitleText": "首页",
+				"enablePullDownRefresh": true,
+				"app-plus": {
+					"pullToRefresh": {
+						"support": true,
+						"color": "#2979ff", //小圈圈的颜色
+						"style": "circle" //小圈圈的样式
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/center/center",
+			"style": {
+				"navigationStyle": "custom" ,// 隐藏系统导航栏
+				"navigationBarTitleText": "我"
+			}
+		}
+	    ,{
+            "path" : "pages/login/login",
+            "style" :                                                                                    
+            {
+				"navigationStyle": "custom" ,// 隐藏系统导航栏
+                "navigationBarTitleText": "密码登录",
+                "enablePullDownRefresh": false
+            }
+        }
+		,{
+		    "path" : "pages/login/code",
+		    "style" :                                                                                    
+		    {
+				// "navigationStyle": "custom" ,// 隐藏系统导航栏
+		        "navigationBarTitleText": "获取验证码",
+		        "enablePullDownRefresh": false
+		    }
+		}
+		,{
+		    "path" : "pages/login/account",
+		    "style" :                                                                                    
+		    {
+				"navigationStyle": "custom" ,// 隐藏系统导航栏
+		        "navigationBarTitleText": "短信登录",
+		        "enablePullDownRefresh": false
+		    }
+		}
+		,{
+		    "path" : "pages/login/problem",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "常见问题",
+		        "enablePullDownRefresh": false
+		    }
+		}
+        ,{
+            "path" : "pages/profile/setting",
+            "style" :                                                                                    
+            {
+				"navigationStyle": "custom" ,// 隐藏系统导航栏
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+        },
+		{
+		    "path" : "pages/profile/profile",
+		    "style" :                                                                                    
+		    {
+				"navigationStyle": "custom" ,// 隐藏系统导航栏
+		        "navigationBarTitleText": "",
+		        "enablePullDownRefresh": false
+		    }
+		}
+        ,{
+            "path" : "pages/profile/password",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "修改密码",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/search/search",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "搜索",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+		,{
+		    "path" : "pages/location/location",
+		    "style": {
+		    	// "navigationStyle": "custom" ,// 隐藏系统导航栏
+		    	"navigationBarTitleText": "选择地址"
+		    }
+		    
+		}
+        ,{
+            "path" : "pages/notice/notice",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "通知",
+                "enablePullDownRefresh": false
+            }
+            
+        },
+		{
+		    "path" : "pages/profile/aboutMe",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "关于我",
+		        "enablePullDownRefresh": false,
+				"navigationStyle": "custom" // 隐藏系统导航栏
+		    }
+		    
+		}
+        ,{
+            "path" : "pages/search/searchList",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "房源列表",
+				"enablePullDownRefresh": true
+            }
+            
+        }
+        ,{
+            "path" : "pages/detail/detail",
+            "style" :                                                                                    
+            {
+				"navigationStyle": "custom" ,// 隐藏系统导航栏
+                "navigationBarTitleText": "房源详情",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/detail/addHouse",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "新增房源",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/detail/preHouse",
+            "style" :                                                                                    
+            {
+				"navigationStyle": "custom" ,// 隐藏系统导航栏
+                "navigationBarTitleText": "预增房源",
+                "enablePullDownRefresh": false
+            }
+        }
+		
+		
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "World",
+		"navigationBarBackgroundColor": "#ffffff",
+		"backgroundColor": "#ffffff"
+	},
+	"tabBar": {
+	    "color": "#909399",
+	    "selectedColor": "#2979ff",
+	    "borderStyle": "#909399",
+	    "backgroundColor": "#ffffff",
+	    "list": [{
+	        "pagePath": "pages/index/index",
+	        "iconPath": "static/index.png",
+	        "selectedIconPath": "static/index-selected.png",
+	        "text": "首页"
+	    }, {
+	        "pagePath": "pages/center/center",
+	        "iconPath": "static/center.png",
+	        "selectedIconPath": "static/center-selected.png",
+	        "text": "我"
+	    }]
+	},
+	"condition" : { //模式配置，仅开发期间生效
+		"current": 0, //当前激活的模式(list 的索引项)
+		"list": [
+			{
+				"name": "", //模式名称
+				"path": "", //启动页面，必选
+				"query": "" //启动参数，在页面的onLoad函数里面得到
+			}
+		]
+	}
+}

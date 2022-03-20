@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "关于我",
+  "enablePullDownRefresh": false,
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "like-fx": "/components/likeFx/likeFx"
+  }
+}
