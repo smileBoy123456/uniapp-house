@@ -88,7 +88,7 @@
 				navList:[
 				   {name:"整租",src:"/static/img/index/cover/index_cover1.png",type:"1"},
 				   {name:"合租",src:"/static/img/index/cover/index_cover2.png",type:"1"},
-				   {name:"搬家",src:"/static/img/index/cover/index_cover3.png",type:"1"},
+				   {name:"转租",src:"/static/img/index/cover/index_cover3.png",type:"1"},
 				   {name:"发布房源",src:"/static/img/index/cover/index_cover4.png",type:"2"}
 				],
 				loadStatus: 'loadmore',
@@ -151,14 +151,14 @@
 					this.flowList = []
 					this.$refs.uWaterfall.clear();
 				}
-				console.log(this.pageNum);
-				let url = "api/house/findHouseList";
+				let url = "/api/houseApi/findHouseRoomList";
 				this.$u.get(url, {
 					pageNum: this.pageNum,
 					pageSize: this.pageSize,
 					orderByColumn: 'update_time,create_time',
 					isAsc: 'desc'
-				}).then(data => {
+				}).then(result => {
+					const data = result.rows;
 					if(this.pageNum>1 && data.length < this.pageSize){
 						return this.loadStatus = 'nomore';
 					}

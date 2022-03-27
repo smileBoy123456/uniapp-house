@@ -115,14 +115,14 @@
         },
         methods: {
             findHouseList() {
-            	console.log(this.pageNum);
-            	let url = "api/house/findHouseList";
+            	let url = "/api/houseApi/findHouseRoomList";
             	this.$u.get(url, {
             		pageNum: this.pageNum,
             		pageSize: this.pageSize,
             		orderByColumn: 'update_time,create_time',
             		isAsc: 'desc'
-            	}).then(data => {
+            	}).then(result => {
+					const data = result.rows;
             		if(this.pageNum>1 && data.length < this.pageSize){
             			return this.loadStatus = 'nomore';
             		}
