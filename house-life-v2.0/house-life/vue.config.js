@@ -3,7 +3,7 @@ module.exports = {
   devServer: {
     proxy: {
       '/api': {
-        target: 'https://sourcebyte.cn',
+        target: 'http://47.243.114.191:8081',
         changeOrigin: true,
         pathRewrite: {
           '^/api': '/api'

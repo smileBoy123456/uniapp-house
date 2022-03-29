@@ -135,8 +135,9 @@ export default {
 			this.model.payType = this.actionSheetList[index].text;
 		},
 		findVillageList() {
-			let url = "api/house/findVillageList";
-			this.$u.get(url).then(data => {
+			let url = "/api/houseApi/findVillageList";
+			this.$u.get(url).then(result => {
+				const data = result.rows
 				for (let i = 0; i < data.length; i++) {
 				    // 先转成字符串再转成对象，避免数组对象引用导致数据混乱
 				    let item = data[i]

@@ -415,12 +415,17 @@ export default {
 			this.lists[index].error = false;
 			this.uploading = true;
 			// 创建上传对象
+			let lifeData = uni.getStorageSync('lifeData');
+			let token = lifeData.vuex_token
 			const task = uni.uploadFile({
 				url: this.action,
 				filePath: this.lists[index].url,
 				name: this.name,
 				formData: this.formData,
-				header: this.header,
+				// header: this.header,
+				header: {
+					Authorization :token
+				},
 				success: res => {
 					// 判断是否json字符串，将其转为json格式
 					let data = this.toJson && this.$u.test.jsonString(res.data) ? JSON.parse(res.data) : res.data;
@@ -457,7 +462,19 @@ export default {
 			this.lists[index].error = true;
 			this.lists[index].response = null;
 			this.$emit('on-error', err, index, this.lists, this.index);
-			this.showToast('上传失败，请重试');
+			// this.showToast('上传失败，请重试');
+			uni.showModal({
+				title: '认证失效，请重新登录',
+				showCancel: false,   
+				 success: (res) => {  
+					if(res.confirm) {
+						// 没有token 则跳转到登录
+						return uni.reLaunch({
+							url:'../login/login'
+						})
+					}
+				}  
+			});
 		},
 		// 删除一个图片
 		deleteItem(index) {

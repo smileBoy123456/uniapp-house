@@ -64,7 +64,7 @@ class Request {
 						}
 					} else {
 						// 401要求携带token
-						if(response.statusCode == 401) {
+						if(response.statusCode == 401 || response.statusCode == 403) {
 							uni.showModal({
 								title: '认证失效，请重新登录',
 								showCancel: false,   

@@ -11,7 +11,8 @@ const install = (Vue, vm) => {
 	Vue.prototype.$u.http.interceptor.request = (config) => {
 		// config.header.Token = '5d33018e653d897fc259b42cf022c1b3';
 		// 方式一，存放在vuex的token，假设使用了uView封装的vuex方式，见：https://uviewui.com/components/globalVariable.html
-		config.header.token = vm.vuex_token;
+		// 自定义token头
+		// config.header.Authorization = vm.vuex_token;
 		return config; 
 	};
 	// 响应拦截，判断状态码是否通过

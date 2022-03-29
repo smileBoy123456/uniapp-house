@@ -202,7 +202,7 @@ export default {
 				return {
 					imageName: val.response.realName,
 					imagePath: val.response.fileName,
-					imageUrl: val.response.url, 
+					imgUrl: val.response.url, 
 					imageSize: val.file.size
 				}
 			})
@@ -210,7 +210,7 @@ export default {
 			if(this.$u.test.isEmpty(this.model.featureList)){
 				return this.$mytip.toast('请至少选择一个房源亮点')
 			}
-			let url = "api/house/saveHouse";
+			let url = "api/houseApi/saveHouse";
 			this.$u.post(url,this.model).then(data => {
 				uni.$emit('findIndexHouseList', {});
 				this.$u.route({

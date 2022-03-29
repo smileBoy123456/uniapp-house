@@ -123,11 +123,11 @@
                 });
             },
 			findHouseById(houseId){
-				let url = "api/house/findHouseById";
+				let url = "api/houseApi/findHouseById";
 				this.$u.get(url, {
 					id: houseId
-				}).then(data => {
-					let room = data
+				}).then(result => {
+					let room = result.data
 					if(room.type == 0){
 						room.type = '整租'
 					}else if(room.type == 1){
@@ -158,7 +158,7 @@
 					this.swiperlist = room.imageList.map(val=>{
 						return {
 							title: val.imageName,
-							image: val.imageUrl
+							image: val.imgUrl
 						}
 					})
 					this.tagList = room.featureList.map(val=>{
