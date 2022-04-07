@@ -13,9 +13,9 @@
 
 演示地址：http://47.243.114.191:8080/house
 
-官网地址：https://sourcebyte.cn
-
 项目运行文档：http://47.243.114.191:8082/index.html
+
+官网地址：https://sourcebyte.cn
 
 ***温馨提醒***
 
