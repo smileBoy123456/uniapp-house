@@ -11,9 +11,9 @@
 
 ### 在线体验
 
-演示地址：http://47.243.114.191:8080/house
+演示地址：http://demo.sourcebyte.cn:8080/house
 
-项目运行文档：http://47.243.114.191:8082/index.html
+开发文档：http://doc.sourcebyte.cn:8082/index.html
 
 官网地址：https://sourcebyte.cn
 
