@@ -51,6 +51,12 @@
 
 项目自开源以来，收获了很多的小心心和支持，也经常有小伙伴会来咨询是否上线，因此，我们推出v2.0版本，完善已有功能（推出更多功能），给大家带来更好的体验与服务支持。当然必须坚持开源，前端的源码在当前同级目录下的v2.0中，后台使用的是我的另一个开源项目，[追求极致用户体验的低代码平台](https://gitee.com/open-source-byte/source-vue)
 
+### 部分截图
+<img src="https://zhoukaiwen.com/img/Design/app/FotoJet11.jpg" width="100%" />
+<img src="https://zhoukaiwen.com/img/Design/app/FotoJet1.jpg" width="100%" />
+<img src="https://cdn.zhoukaiwen.com/FotoJet2.png" width="100%" />
+<img src="https://cdn.zhoukaiwen.com/FotoJet3.png" width="100%" />
+
 ### 作者信息
 
 1.  作者：詹Sir
