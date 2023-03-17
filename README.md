@@ -7,36 +7,28 @@
 
 1、使用Uniapp开发的前台，基于 Vue.js 开发所有前端应用的框架，开发者编写一套代码，可发布到iOS、Android、Web（响应式）、以及各种小程序
 
-2、使用若依开发的后台，基于SpringBoot的权限管理系统 易读易懂、界面简洁美观。 核心技术采用Spring、MyBatis、Shiro，系统功能完善，代码结构清晰
+2、使用若依开发的后台，基于SpringBoot的权限管理系统 易读易懂、界面简洁美观。 核心技术采用Spring、MyBatis、Spring Security，系统功能完善，代码结构清晰
 
 ### 在线体验
 
-演示地址：http://demo.sourcebyte.cn:8080/house
+- 官网地址：https://sourcebyte.vip
+- 开发文档：http://doc.sourcebyte.vip
+- 后台地址：http://boot.sourcebyte.vip
+- 小程序（打开微信扫一扫）
 
-开发文档：http://doc.sourcebyte.cn:8082/index.html
-
-官网地址：https://sourcebyte.cn
+<img src="https://sourcebyte.vip/profile/customer/site/news/qrcode.jpg"  width="220px" alt="小程序演示"/>
 
 ***温馨提醒***
 
 1. 本项目仅适用于学习交流，并且`不提供无偿的`、 `不提供无偿的`、 `不提供无偿的` 维护修改服务（但可提issue）***
-
-2. 本项目不在任何平台出售,如有发现请积极举报！
-
-3. 为了更好的体验，友情提示此项目是一个全栈项目，熟练掌握后你就比大多数人牛掰了，认真刻苦的掌握它，累觉不爱ღ( ´･ᴗ･` )比心
-
-***不要只是白嫖 ,如果帮到你了麻烦点个Star***
-
-> 发现有问题？欢迎加入下方交流群一起探讨，或者直接提Issues
-
-- [其他开源项目]
-
-1. 开源字节(传播开源的理念) https://gitee.com/open-source-byte
-2. 开源字节低代码开发平台(追求极致用户体验) https://gitee.com/open-source-byte/source-vue
+2. 本项目不在任何平台出售,如有发现请积极举报
+3. 为了更好的体验，友情提示此项目是一个全栈项目，熟练掌握后你就比较牛掰了，认真刻苦的掌握它，累觉不爱ღ( ´･ᴗ･` )比心
+4. 不要只是白嫖 ,如果帮到你了麻烦***点个Star***
+5. 发现有问题？欢迎加入下方交流群一起探讨，或者直接提Issues
 
 ### 项目简介
 
-本项目是2021年9月份左右的产物，花了大概一年时间做完。
+本项目是2022年6月份左右的产物，花了大概两年时间做完。
 
 > 项目虽然没有做的很完整，但是整体的数据架构还算是可以的，可以很容易进行功能完善和添加新功能。里面还有很多可以完善的地方，比如 `实名认证` 页面可以做的更加精细一些，`房子详情页` 可以添加地图之类的内容等。
 
@@ -47,16 +39,17 @@
 > 本程序已经经过测试，可以直接使用,界面可以自己进行修改。本人热爱全栈，热爱vue，热爱java，热爱编程。
 由于本人的精力有限，还有很多地方没法完善，望指正！
 
-### 租房正传
-
-项目自开源以来，收获了很多的小心心和支持，也经常有小伙伴会来咨询是否上线，因此，我们推出v2.0版本，完善已有功能（推出更多功能），给大家带来更好的体验与服务支持。当然必须坚持开源，前端的源码在当前同级目录下的v2.0中，后台使用的是我的另一个开源项目，[追求极致用户体验的低代码平台](https://gitee.com/open-source-byte/source-vue)
-
 ### 部分截图
-<img src="https://sourcebyte.cn/profile/customer/git/house-main1.png" width="100%" />
-<img src="https://sourcebyte.cn/profile/customer/git/house-main2.png" width="100%" />
+#### 1. 前台截图
+<img src="https://sourcebyte.vip/profile/customer/git/house-main1.png" width="100%" />
+<img src="https://sourcebyte.vip/profile/customer/git/house-main2.png" width="100%" />
+<img src="https://sourcebyte.vip/profile/customer/git/house-main3.png" width="100%" />
+
+#### 2. 后台截图
+![输入图片说明](https://gitee.com/open-source-byte/source-mall/raw/master/doc/5.png)
+![输入图片说明](https://gitee.com/open-source-byte/house/raw/master/docs/image/manage1.png)
 
 ### 作者信息
-
 1.  作者：詹Sir
 2.  邮箱：261648947@qq.com
 
@@ -64,8 +57,10 @@
 > * 目前使用 `「UVIEW」` 制作的前台，感谢作者开源！前端技术栈 ES6、vue、vuex、vue-router、vue-cli、axios、element-ui
 > * 目前使用 `「若依」` 制作的后台，感谢作者开源！后端技术栈 SpringBoot、MyBatis、Spring Security、Jwt
 
-### 「租房」交流群
-![输入图片说明](https://img-blog.csdnimg.cn/df9928e2ebe6497f94fb7fe1a207ced7.jpg)
+### QQ交流群
+| 1群(851042670) | 2群(522723115) | 3群(862649072) |
+| :------: | :------: | :------: |
+| <img src="https://gitee.com/open-source-byte/source-vue/raw/master/doc/qq01.png" width="200px">| <img src="https://gitee.com/open-source-byte/source-vue/raw/master/doc/qq02.png" width="200px">| <img src="https://gitee.com/open-source-byte/source-vue/raw/master/doc/qq03.png" width="200px">| 
 
 ### 结语
 
